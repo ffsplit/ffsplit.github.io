@@ -1,0 +1,12 @@
+- More fixes to DirectShow. We think we got em all!
+- Added Frame dropping
+- Added Mini-Dump creator for easier support
+- Added better error messages for missing runtimes
+- Fixed silent crash on startup
+- Layers and Canvases can now be selected by rightclick
+- Added close button to Configuration
+- Added Dialog when trying to open multiple instances of FFsplit
+- Indented settings file for better readability
+- Fixed DPI-awareness on all windows
+- Fixed "Out of Range" exception on layer list
+- Changed the way filters are registered

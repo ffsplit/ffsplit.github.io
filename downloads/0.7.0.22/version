@@ -1,0 +1,14 @@
+- Added playback device capturing. You can now select ALL normal output devices instead of only default.
+- Audio Filters now use Visual Studio 2012 runtimes.
+- Audio levels and settings moved from registry to settings file.
+- Changed AAC encoder to libvo_aacenc.
+- Changed VU meters to more accurately reflect volume levels.
+- Fixed audio not being totally muted at 0% volume.
+- Fixed clipping audio when volume was increased beyond 100%.
+- Fixed random stopping issue caused by audio filters.
+- Fixed Twitch.tv firing live messages (tweets/emails) when verifying the rtmp key.
+- Fixed exception in hotkeylist when canvas had hotkey but it was cleared.
+- Fixed possible Null Reference in the log viewer.
+- Fixed some registry functions failing if subkeys didn't exist.
+- Made several changes to Video Capture Devices in preparation for future updates.
+- Registry is now properly populated on program startup.

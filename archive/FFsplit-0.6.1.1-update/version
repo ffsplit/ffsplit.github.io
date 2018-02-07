@@ -1,0 +1,7 @@
+0.6.1.1
+- Hotfix for an issue with streaming at certain resolutions
+- Fixed an issue with FFsource not changing FPS
+
+0.6.1.0
+- Improved screen capturing performance for Windows Vista and 7
+- Improved GPU readback for certain hardwares

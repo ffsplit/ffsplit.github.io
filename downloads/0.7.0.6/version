@@ -1,0 +1,6 @@
+- Fixed MaintainAspectRatio error on very low resolutions
+- Lock and Visibility icons are now always shown
+- Lock and Visibility icons are now clickable
+- Fixed a bug where the hotkeys wouldnt register
+- Microphone mute button now shows proper state
+- Removed 3rd party hotkey library

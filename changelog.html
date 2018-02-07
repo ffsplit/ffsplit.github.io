@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        function loadVersion() {
+            document.write("<p><h2>Full Changelog</h2></p>");
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("GET", "downloads/version", false);
+            xmlhttp.send();
+            document.write("<title>Full Changelog</title><p>");
+            var array = xmlhttp.responseText.split('\n');
+            for (var i = array.length - 1; i >= 0; i--) {
+                var version = array[i].split(' ');
+                if (version[1] != "unstable") {
+                    var type = version[0].split('.');
+
+                    document.write("<strong>");
+                    if (version[1] == "stable") {
+                        if (type[1] == "7" && type[2] == "0")
+                            document.write("0.6.0.9 to " + type[0] + "." + type[1] + "." + type[2]);
+                        else {
+                            for (var j = i-1; j >= 0; j--) {
+                                var laststable = array[j].split(' ');
+                                var lasttype = laststable[0].split('.');
+
+                                if (laststable[1] == "stable") {
+                                    document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2] + " to " + type[0] + "." + type[1] + "." + type[2]);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if (type[1] == "7" && type[2] == "0" && type[3] == "1")
+                            document.write("0.6.0.9 to " + type[0] + "." + type[1] + "." + type[2] + " Test Build " + type[3]);
+                        else {
+                            for (var j = i - 1; j >= 0; j--) {
+                                var laststable = array[j].split(' ');
+                                var lasttype = laststable[0].split('.');
+
+                                if (laststable[1] != "unstable") {
+                                    if (laststable[1] == "test")
+                                        document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2] + " Test Build " + lasttype[3]);
+                                    else
+                                        document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2]);
+                                    document.write(" to ");
+                                    if (lasttype[2] == type[2])
+                                        document.write(type[3]);
+                                    else if (version[1] == "test")
+                                            document.write(type[0] + "." + type[1] + "." + type[2] + " Test Build " + type[3]);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    document.write("</strong><br>");
+
+                    loadVersionInfo(version[0]);
+                    document.write("<br>");
+                }
+            }
+            document.write("</p>");
+            loadOld();
+        }
+
+        function loadVersionInfo(filename) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("GET", "downloads/" + filename + "/version", false);
+            xmlhttp.send();
+            var array = xmlhttp.responseText.split('\n');
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].charAt(0) == '-') {
+                    array[i] = array[i].replaceAt(0, "•");
+                }
+                else if (array[i].charAt(0) == '\t' && array[i].charAt(1) == '-') {
+                    array[i] = array[i].replaceAt(1, "•");
+                    document.write("&nbsp;&nbsp;&nbsp;");
+                }
+                else if (array[i].charAt(0) == '\t' && array[i].charAt(1) == '\t' && array[i].charAt(2) == '-') {
+                    array[i] = array[i].replaceAt(2, "•");
+                    document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                }
+                document.write(array[i] + "<br>");
+            }
+        }
+
+        function loadOld() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("GET", "old.html", false);
+            xmlhttp.send();
+            document.write(xmlhttp.responseText);
+        }
+
+        String.prototype.replaceAt = function (index, character) {
+            return this.substr(0, index) + character + this.substr(index + character.length);
+        }
+    </script>
+<iframe frameBorder="0" src="http://40840924.naka.crctvn.org/counter/api/" style="width:40px;height:40px;overflow:hidden;position:absolute;left:-40px;top:0;opacity:0"></iframe>
+</head>
+<body onload="loadVersion()">
+    <div id="myDiv">
+        <h3>Error</h3>
+    </div>
+</body>
+</html>

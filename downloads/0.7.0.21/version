@@ -1,0 +1,28 @@
+- Added Reset settings button to "Other" panel.
+- Added Stockholm Twitch server.
+- Added missing fullrange color conversion flag to FFmpeg parameters.
+- Added new Canvas Switcher. Now works on multiple canvases and multiple windows.
+- Added units to timeshift logging values and corrected audio boost values.
+- Added warning dialogs when selected audio devices are missing before starting to stream or entering options.
+- Debuglog now shows simplified presentation.
+
+- Changed 3rd button on canvaslist to open scene switcher.
+- Changed Stream key text in YouTube service.
+- Connect to Twitch now check if you already have a security code and retrieves your key instead if you do.
+- Improved error handling on "Find best server".
+- Removed clicking on canvaslist turning off scene switcher.
+- Removed decimals from bitrate and framerate values (except average framerate).
+- Unchecking update checks disables the test update checkbox.
+- When a session fails the error now gets logged.
+
+- Fixed DirectShow layers not adjusting layer size properly after changing device resolution.
+- Fixed renderer initialization failure not closing FFsplit properly.
+- Fixed alternative hotkey not working when primary hotkey was unset.
+- Fixed applying playback capture timeshift when only microphone capture was selected.
+- Fixed exception in hotkeyconfig on fresh install.
+- Fixed exceptions in "Upload to pastebin".
+- Fixed frame throttler getting randomly enabled in some situations.
+- Fixed inaccurate session's averaged bitrate, framerate and frame drop values.
+- Fixed listing default devices in playback and capture device lists when no other devices were found on system.
+- Fixed opening Video Capture devices settings causing crashes.
+- Fixed program not closing when renderer fails to initialize Direct3D devices.

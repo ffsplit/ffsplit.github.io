@@ -1,0 +1,19 @@
+- DirectShow devices can now be added to multiple canvases
+- Fixed more errors involving webcams with bad DirectShow drivers
+- DirectShow source now properly reports all available framerates
+- Layer Buttons are now disabled on very low resolutions, rightclick for layer options
+- Hotkeys can now use only modifier keys like ctrl/shitf/alt
+- Sharpened the scaler a bit for a less blurry stream
+- Start and Stop stream can now be bound to the same key
+- Capture source can now be changed at runtime
+- Changed "..." button to "Log"
+- Log now updates while it is open
+- Log now displays ALL ffmpeg output
+- Added commandline options:
+	- "-stats" Shows layer framerates on preview window
+	- "-nohooks" Disables mouse/keyboard hooks completely (hotkeys)
+- Fixed crash when trying to use now playing on iTunes
+- Lots of small UI tweaks
+- Fixed crash when DirectX runtimes are not properly installed
+- Added ignore alpha option to Image Layers
+- Fixed faulty framerate reporting on ffsourcelog.txt

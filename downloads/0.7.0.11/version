@@ -1,0 +1,36 @@
+HOTFIX 2:
+- Added validation for missing RTMP url.
+- Fixed missing Ionic.Zip.Reduced.dll for some users.
+HOTFIX 1:
+- Fixed locale issues related to different decimal markers.
+- Fixed log getting spammed with empty lines.
+- Logviewer no longer parses lines with RTMP address
+- Added semi-gapless text scrolling
+- Added vertical text scrolling
+- Added some hardware information to FFsourceLog.txt
+- Added menu shortcuts for opening FFsplit directory and Local Recordings
+- Fixed an issue with audio devices not listing properly
+- Removed default recording device when no mics are found
+- Removed YUV-shader warnings from FFsourceLog.txt
+- Disabled double-click maximize in Updater and FFmpeg download window
+- Fixed an issue with update changes not getting listed properly
+- FFsplitFilterReg: Uses proper 32-bit regsrv32.exe for 64-bit systems
+- FFsplitFilterReg: Added error checking
+- Added option for clean install during update (this will remove all user settings)
+- XML files are human readable now
+- Added remote textfile downloader
+- Added automatic textfile reloading
+- Fixed custom text layers not updating the text at all
+- Fixed crashing when reverting text layer changes
+- Fixed low resolution workarounds causing error on first startup
+- Adjusted Window Capture info label for Aero to match with the reality
+- If a session is active, changes to encoder resolution and frame will be applied after session has stopped
+- Added 1 second throttling for recovering lost Windows 8 capture devices
+- Changed encoder resolution width and height valid range to 2-8192
+- Fixed text related errors when encoder resolution was way too low
+- Labels are now properly enabled/disabled when switching between stream services
+- Log timestamps are now in HH:mm:ss format
+- Removed real-time buffer constraint for encoder
+- Improved logging for FFmpeg outputs
+- Changed packet dropping to network jitter instead of TCP buffer overflow
+- Minor fix to video/audio synchronization

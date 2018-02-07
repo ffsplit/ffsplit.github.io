@@ -1,0 +1,24 @@
+- Hotfix4: Reverted some changes on audio filters which caused encoder to freeze and stream disconnect issues.
+- Hotfix3: Fixed service verification failing on clean installation.
+- Hotfix2: Final fix for the FFmpeg installation issue. (sorry)
+- Hotfix: Fixed downloading FFmpeg causing exceptions when work folder didn't exist.
+-
+- Removed admin privilege requirements, please remove any compatibility modes for FFsplit executable.
+- - Program settings directory is set to "%APPDATA%\FFsplit".
+- - Settings files and FFmpeg files are automatically copied to new location.
+- - Fixes Virtual Camera Output and iTunes Now Playing support.
+- Fixed memory leaks on Screen layers and DirectShow layers.
+- Fixed memory leaks cause by querying DirectShow device property pages.
+- Fixed memory leaks on FFsource filter.
+- Fixed FFsource filter crashing at release.
+- Fixed FFsource filter slow startup.
+- FFsource filter now displays FFsplit logo if program is not running while using the filter.
+- Added alternative window finding methods in case proper handle couldn't be found.
+- Added toggle for enabling OpenCL lookahead acceleration.
+- Fixed frame throttler getting enabled when advanced options toggle was unchecked.
+- Added missing bitrate logging entry, service output type, and fixed a typo.
+- Fixed logging advanced options when it was toggled off.
+- Fixed FFsource filter using wrong settings at program startup on some situations.
+- Fixed possible division by zero scenario when converting settings to newer format.
+- Fixed Text layer cropping behaviour when dragged from top/left edges and corner.
+- Fixed Text layer cropping getting set to minimum crop size in some situations.

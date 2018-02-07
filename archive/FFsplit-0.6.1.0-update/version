@@ -1,0 +1,3 @@
+0.6.1.0
+- Improved screen capturing performance for Windows Vista and 7
+- Improved GPU readback for certain hardwares

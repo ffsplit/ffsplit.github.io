@@ -1,0 +1,44 @@
+- Hotfix3: Fixed audio and mic delay not working properly at the same time.
+	- Fixed device delay values being reversed (delay was advance and vice versa).
+- Hotfix2: Fixed encoder freezing when audio device becomes silent (Windows 8.x issue).
+- Fixed FFsplit Overlay not being hidden from DirectShow device list.
+- Fixed Stream keys not being hidden from debug logs (please reset your stream keys if you shared your debug logs)
+- Fixed Pastebin pastes not being private.
+- Hotfix1: Fixed some video capture devices failing to get added properly after update.
+- Added "Capture as Region" option for Window Layers (Region capture with window tracking).
+	- This is a workaround for some games known for having problems with window capture (Minecraft, FTL, SDL/OpenGL-based games)
+	- With this method, capturing windows from background is NOT possible, window must be on top
+- Added Push-to-Talk Release Delay to Options > Capture.
+- Added subregion capturing option for Window layers (for now only by manually changing the x/y/width/height values).
+- Added update interval to CanvasSwitcher.
+- Added support for dynamic Twitch Ingest server changes.
+- Added viewport menu option to enable prewview area overstretching past original resolution.
+- Fixed selecting custom fonts on Text Layers not getting used correctly.
+- Fixed UI getting locked up with lower framerates.
+- Fixed text scrolling not working properly with cropped layer size.
+- Fixed windows with no title name not appearing on Window Capture list.
+- Fixed canvas switcher not listing windows with no title name.
+- Fixed capturing FFsplit window causing the program to hang at startup.
+- Fixed changing any Screen layer type to Monitor Capture throwing errors.
+- Fixed muted audio devices not being really muted at program startup.
+- Fixed -noffmpegupdates not skipping the update check.
+- Fixed Window layer position reseting after changing non-critical settings.
+- Possible fix for DirectShow devices with fractional framerates.
+- Improved "Find Best Server" code (faster, more accurate results).
+- Installers now actually check if the files are in use before telling you to close Skype. This should fix the faulty messages to close Skype when you already did so.
+- Layer buttons are now disabled when no layer is selected.
+- Mouse cursor is no longer displayed when window is not active/topmost with Window capture.
+- Editing screen regions with Select Region button will now reposition the rectangle to previous position.
+- Moved Duplicate Layer to the main layer context menu.
+- Muting now also stops the VU-meters.
+- Removed stream key character restrictions, but users are warned if invalid characters are present.
+- Non-truncated process names are now used in canvas switcher detection.
+- Options screen now shows up on the Taskbar.
+- Added warning dialog for users with old graphics cards.
+- All Exceptions are now caught and logged.
+- Canvas Switcher button now shows if it is on or not.
+- Changed video and audio delay range to [-10000ms, 10000ms].
+- Enabling scroll mode on a text layer also sets scroll speed to 1.
+- Reduced FFmpeg process wait time to half when stopping session.
+- Stopping session will now forcefully kill FFmpeg processes if still running at background after wait period.
+- When the Session fails all errors are now returned instead of only the last one.

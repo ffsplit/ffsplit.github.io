@@ -1,0 +1,4 @@
+0.6.0.6
+- Fixed an issue with FFsource crashing with video capture device
+- Fixed autoupdater for overall faster loading
+- Added patchnotes when asking for update

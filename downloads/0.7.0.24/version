@@ -1,0 +1,37 @@
+- Reworked Service options: Services are now Outputs, and local recording settings are now under Output settings.
+- Added new services: Hitbox.tv, Livestream (mogulus), Dailymotion/GameCreds.
+- Removed service verification process.
+- Improved canvas preview display quality.
+- Changed layer ordering shortcut keys under Control modifier (CTRL-up/down).
+- Added new region selection tool (press, drag, and release to capture region).
+- Added option to force left panned stereo microphones to mono.
+- Added "Drag and drop" support for text files and images.
+- Added Preview Popout option (double-click or ALT+Enter to fullscreen).
+- Added right-click context menu to also work in preview area.
+- Added support for RTSP streams (untested).
+- Added option to hide stream keys in Output options.
+- Added summary of selected encoding settings to Session tab.
+- LayerTextNowPlaying: Added support for Columns UI foobar2000 module.
+- Fixed unable to disable automatic updates.
+- Fixed possible out of memory issues at startup.
+- Fixed possible memory leaks with Text Layers.
+- Fixed hiding viewer counter for unsupported services.
+- Fixed mute output state not displaying correctly at startup when left muted last time.
+- Fixed some Audio/Mic delay issues.
+- Fixed Audio and Mic delay not working properly at the same time.
+- Fixed device delay values being reversed (delay was advance and vice versa).
+- Fixed audio device checks at stream startup.
+- Fixed audio meters not working while not recording or streaming.
+- First active output profile is selected automatically when entering Output tab.
+- Fixed rare crashes right after closing Options.
+- Fixed Window Capture process detection when window title changes.
+- Fixed Screen layer region cropping values not restoring after restart.
+- Fixed Window capture fallback trying to capture invisible windows after losing the window.
+- Fixed capturing regions overlapping monitors from left side of main monitor (Windows 8 only).
+- Added asynchronous update checking at startup.
+- Added simple encryption for storing passwords.
+- Changed Twitch.tv mobile compatibility warning nags and labels.
+- Fixed pressing Cancel button in FFmpeg update dialogs to not close the whole program.
+- Fixed fetching latest FFmpeg version from server when server returns something unexpected.
+- Fixed grayed out cancel button after FFmpeg update fails.
+- Fixed error after downloading update.

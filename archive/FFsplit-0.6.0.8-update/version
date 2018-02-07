@@ -1,0 +1,3 @@
+0.6.0.8
+- Fixed an issue with FFsource closing improperly
+- Fixed an issue with Updater Dll dependancy

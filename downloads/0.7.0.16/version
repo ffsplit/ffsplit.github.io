@@ -1,0 +1,8 @@
+- Hotfix:
+	- Reverted Twitch Auth. Too many bugs.
+- Hotfix:
+	- Fixed interrupting Twitch authentication dialogs and webform causing UI lockups.
+	- Fixed closing Twitch authentication webform causing wait dialog to not return.
+	- Fixed Twitch authentication process not closing properly and being stuck on background.
+	- Fixed mouse cursor in Screen Layers (Windows 8) showing up on wrong monitors on multi-monitor systems.
+- Minor fix to update system for future hotfixes

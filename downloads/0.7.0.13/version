@@ -1,0 +1,10 @@
+- Fixed random frame dropping issue
+- Added version information to log files
+- Fixed random stream freezing issue
+- Made some adjustments to stream relay, hopefully improving stream stability
+- Fixed text layer freezing caused by huge files
+- Fixed frame throttler being always enabled at startup
+- Fixed throttler state not being saved and used correctly
+- Fixed invalid window capture size checks
+- Added auto reconnecting when FFmpeg crashes or freezes
+- Added color coding for dropped frames

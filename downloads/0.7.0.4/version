@@ -1,0 +1,6 @@
+- Bugfixes to layerselection
+- Quicktext is now white
+- More logging added
+- Statusbar messages are now shown
+- Hotkeys enabled
+- Changed background color near viewport so the border shows more clearly on Classic theme

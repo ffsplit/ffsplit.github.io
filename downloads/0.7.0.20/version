@@ -1,0 +1,81 @@
+- HOTFIX3:
+- Canvas context menu nows shows currently bound hotkey.
+- Canvas hotkeys can now be bound from the options menu.
+- Debuglog now shows if latest ffmpeg is being used.
+- Debuglog will now show default settings even if nothing was streamed or recorded.
+- Fixed DirectShow devices failing with RGB24 pixel format.
+- Fixed adding DirectShow devices causing a crash when failure occurred.
+- Fixed DirectShow devices using non-supported pixel format as default when added.
+- Fixed white output FFsource RGB output with some resolutions.
+- Fixed setting wrong last verified url when creating a new service.
+- Fixed not being able to use modifier keys only as hotkeys.
+- Fixed several exceptions in Hotkeys.
+- Fixed custom FFmpeg x264opts not being used at all.
+- Fixed invalid screen layer aspect ratio with default presentation and quick region.
+
+- HOTFIX2:
+- Fixed instant service verification failure on fresh installs.
+- Fixed new services being marked as verified when no stream key was entered.
+- Fixed status bar getting stretched with some error messages.
+- Fixed UTF-8 encoded text files not being read properly.
+- Fixed FFmpeg build compatibility checks not detecting libx264 correctly.
+- Fixed some memory leaks with DirectShow devices.
+
+- HOTFIX1:
+- Fixed Replicate Layer not using the correct layer
+- Fixed new layers only getting fit to canvas when no layer size was given.
+- Fixed options menu opening on fresh install.
+- Fixed screen region fields not checking if the region is valid.
+- Fixed screen layers position not being reset when changing capture type.
+
+- Test 20:
+- Added Capture Card support for some devices (see forum thread for more info).
+- Added Twitch compliancy warning dialogs when encoder settings are not matching Twitch recommended values.
+- Added new Volume Controls with working VU meters.
+- Added "Replicate Layer to all Canvases" under the "Extra" button. (example: to place your webcam in the same place on every canvas)
+- Added -raw command line to output all ffmpeg info to log
+- Added -noffmpegupdates command parameter to skip FFmpeg updater.
+- Added Auto Reconnect to Session Panel.
+- Added Connect with Twitch button to service page.
+
+- Added VC 2010 runtime redist to installer.
+- Added additional audio boost option for Playback and Microphone capture devices (sliders goes up to 1700% now).
+- Added checks against streaming to same service location with same key more than once.
+- Added check to only report connection error on actual error.
+- Added error message for failed microphone device capture.
+- Added more checks to make sure FFmpeg is installed.
+- Added more detailed failure info for service authentication.
+- Added notification dialogs when changing settings while streaming.
+- Added retry to retrieving the CreateDebugLog if it fails to retrieve the FFSourcelog.txt.
+- Added server text field for typing the server url manually (Custom service).
+- Encoder and Service profiles are now selectable from the main menu.
+- FFmpeg can now be updated independently from FFsplit.
+- Added 30 seconds timeout for service verifying.
+
+- Remade service page in options.
+- Session time will be displayed in red if encoder freezes.
+- Canvas/Layer listbox selected items now show in same color as button highlights.
+- Renamed DirectShow Device layers to Video Capture Device layers.
+- Changed default encoder profile to use CBR.
+- Changed encoder metadata field of output videos to "FFsplit <version>".
+- Selected encode profile and service profiles are now shown on status bar.
+- Added More FFmpeg error checks (less unknown errors).
+- Removed tray balloon tooltip, tray information is now displayed on tray title instead.
+- Reworked some FFmpeg warning dialogs when selecting custom binaries.
+- Encoded videos are now flagged using BT.709 color space flags so media players can properly detect the correct color space.
+
+- Fixed minimum keyframe interval not being set to 2sec.
+- Fixed incorrect chroma subsampling on FFsource NV12 output.
+- Fixed local recording output folder creation if organize by profile was selected.
+- Fixed Image layers trying to constantly reload the file if the file format is not supported.
+- Fixed approximated aspect ratio value for layers being rounded to nearest integer.
+- Fixed connection getting rejected on Ustream and other streaming services.
+- Fixed Ustream and some services failing to verify service settings.
+- Fixed layer snapping not working properly for some resolutions.
+- Fixed possible cause of nulled settings files.
+- Fixed setting wrong audio device volume values at program close.
+- Fixed starting session with hotkey skipping some safety checks and other important stuff.
+- Fixed throttler state getting updated only when file output was selected.
+- Fixed verified flag not reseting to false when re-verifying verified service.
+- Added warning dialog if audio or video capture device is missing when starting to record.
+- Server and stream id elements are now properly parsed from FMLE config file.

@@ -1,0 +1,5 @@
+0.6.0.7
+- Fixed an updater crashing issue due to non-removable files locked by third-party applications
+- Fixed LastErrorLog.txt error issue
+- Fixed patchnotes not showing in updater
+- Fixed "backgroundWorker" not closing properly when stream fails to connect

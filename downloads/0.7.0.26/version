@@ -1,0 +1,7 @@
+- Added following new hitbox.tv ingest servers:
+-- US-Central, Oceania (Sydney), China (Hong Kong), Russia (Moscow)
+- Updated hitbox.tv EU-North RTMP server address.
+- LayerTextNowPlaying: Added osu! now playing support.
+- Fixed invalid service profiles breaking copy log to clipboard.
+- Fixed crashing when releasing renderer resources after early failure.
+- Fixed program not closing properly after failure.

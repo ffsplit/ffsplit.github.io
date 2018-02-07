@@ -1,0 +1,9 @@
+- Applied minor fix for DirectShow device freezing issue
+- Added Duplicate Canvas
+- Hotkeys can now be set upon running for first time
+- Moved Lock/Hide icons to the left for easier access
+- Lock/Hide only requires a single click now
+- FFsplit now warns you when you try to use a different source than FFsource
+- Canvas/Layer options are now disabled when not using FFsource
+- Fixed any issue with creating and deleting encoding profiles
+- Fixed a crash with invalid FFmpeg location

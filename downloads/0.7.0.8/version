@@ -1,0 +1,6 @@
+- Update timeout increased. Hopefully updates now show for everyone
+- Possible fix for DirectShow Device freezing issue. Please report if they still freeze
+- Not selecting FFsource as Video Capture Device will now properly disable layers and canvases
+- Made buttons a little taller so fonts don't get cut off at the bottom
+- Deleting a Canvas will no longer give you an error
+- Fixed bug when adding the same Directshow Device twice

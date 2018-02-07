@@ -1,0 +1,79 @@
+- New User Interface:
+	- Rewrote the whole GUI with major cosmetic changes.
+	- Options dialog will be presented when launching FFsplit first time, closing it will take you to program's main view.
+	- FFsplit window is now resizable!
+	- FFsplit can be minimized to tray.
+	- Windows 8 is now supported (Desktop only).
+- New improved FFsource (new FFsplit overlay compositer, replaces FFsplit overlay)
+	- Renderer is now using DirectX 11 technology (previously DX9).
+		- FFsplit now requires +DX9.0a capable graphics card to work properly.
+		- Some older intel cards may or may not work at all.
+	- Renderer now runs on separate thread, preventing GUI slowdowns.
+	- Text is now rendered using Direct2D API.
+- Streaming and recording changes:
+	- Multiple stream outputs are now supported!
+	- Added profiles for streaming services and encoder settings.
+	- Added delay option (finally!).
+	- Added native support for following streaming services: Hashd.tv, Vaughnlive.tv, Instagib.tv, Gamers-Live, Ustream and YouTube.
+		- Other services can be added by choosing Custom service and pasting the complete RTMP URL to the field.
+	- Streams must be verified first before you can start streaming.
+	- Removed Own3d.tv.
+	- FMLE (Flash Media Live Encoder) settings files can be imported to FFsplit.
+- Encoder changes:
+	- Added support for MP3 audio format.
+	- Added Quality Balance option (CRF).
+	- Optimized FFsource for FFmpeg (encoding performance optimization).
+- Miscellaneous changes:
+	- Scaling quality has been improved by using Lanczos filter.
+	- Audio and video device delay can be adjusted.
+	- Added option to opt-in for beta/test updates (UNSTABLE RELEASES!, only for advanced users).
+	- Added confirmation dialogs for deleting layers and exiting program (can be toggled off from options)
+	- Added sorting recorded videos by date and profile.
+	- FFmpeg location can be chosen manually.
+	- Added hide toggle for preview.
+- Layer and canvas editing:
+	- Added real-time layer editing (finally!), now the changes can be seen before applying the layer settings.
+	- Layers can be locked individually to prevent accidentally moving or resizing them.
+	- Layer transparency can now be changed, along with pixel perfect adjustments for the layer position and size.
+	- Added Quick Region and Quick Window buttons to easily capture specific region or window from screen.
+	- Added Quick Text button for fast text typing to canvas.
+	- Canvases can be duplicated.
+	- Layers can be locked or hide in layer list by pressing the icons or buttons on bottom.
+	- Changed layer resizing behaviour.
+	- Double-clicking layers while holding Shift will reset layer size to it's original (source) size.
+	- Holding Shift while resizing layers allows you to stretch the layer.
+	- Holding CTRL will ignore layer resizing on canvas (recommended for moving very small layers).
+- Screen capturing:
+	- Added proper (and super fast!) screen capture support for Windows 8 systems.
+	- Screen capture optimizations. Vista and 7: Disable Aero for maximum performance.
+	- Monitors are now named after their real name and resolution.
+	- Added Window capturing support. Vista and 7: to capture overlapped and background windows, enable Eero (Aero does not impact window capturing performance).
+	- Windows can be selected from list or by clicking the window on your screen.
+	- Windows can be captured with or without the window decorations or borders (Only Client Area checkbox)
+	- Added Show Mouse Cursor and Capture Layered Windows checkboxes.
+	- Capture region area can be tuned in pixel accuracy.
+- Text layers:
+	- Text layer size can now be changed by resizing the layer in canvas.
+	- Added unicode support.
+	- Added options for Bolded and Italic text.
+	- Text can now have different colored outlines with changeable thickness.
+- New layer type: Text - Now Playing
+	- Captures currently playing artist and song information from following players:
+		- foobar2000
+		- Winamp 5.x
+		- VLC
+		- Last.fm client (old GUI version)
+		- OpenPandora
+		- Spotify
+		- iTunes (unstable)
+- Image layers:
+	- Following image types are supported: .BMP, .JPG, .PNG, .DDS, .TIFF, .GIF and .WMP. (since DX11 build)
+	- Added support for transparent images (PNG).
+	- Added checkbox to ignore alpha channels from loaded image.
+- DirectShow Device layers:
+	- DirectShow capture optimizations.
+	- Following DirectShow video subtypes are supported: RGB24, RGB32 (new) and ARGB24 (new).
+		- Other media types are not supported yet (this will affect most capture cards and some webcams).
+	- Added options to flip DirectShow layers vertically and horizontally.
+	- Added settings button to access selected DirectShow device settings.
+		- With Dxtory devices this will open Dxtory Video Settings (experimental).
