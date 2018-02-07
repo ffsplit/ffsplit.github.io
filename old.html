@@ -1,0 +1,411 @@
+﻿<p>
+    <strong>0.6.0.9 DX11 Test Builds</strong><br />
+    - Improved screen capturing performance for Windows Vista and 7<br />
+    - Improved GPU readback for certain hardwares<br />
+    - Added window capturing. If you have Aero enabled, you can capture window content from background. Hold shift-key to capture window frames.<br />
+    - Added checkbox to enable/disable stream preview<br />
+    - Rendering is now threaded from GUI to prevent freezing and pauses while operating with menus and dragging the window<br />
+    - Layers can be restored to 1:1 size by holding Shift and double-clicking the layer on canvas<br />
+    - List of screens are now named after resolution and primary monitor status<br />
+    - Applied minor changes to behavior of resizing layers and layer snapping<br />
+    - Official support for Windows 8 (32-bit/64-bit) operating system, addressing the slow screen capturing by using new, very fast capture method (only available for Windows 8) comparable to fullscreen recording in performance and resource usage (fullscreen capturing is STILL NOT SUPPORTED)<br />
+    &nbsp;&nbsp;&nbsp;
+	- Windows 8 users can revert back to the old slower capturing method from Options menu
+- FFsource now utilizes DirectX 11 API (previously DirectX 9 Ex API) for improved performance and resource usage<br />
+    - Only DirectX 9.x+ capable GPU are supported on Windows Vista SP2 (Windows Server 2008 SP2) or later systems<br />
+    &nbsp;&nbsp;&nbsp;
+	- Windows Vista / Server 2008 users are adviced to install this update: http://support.microsoft.com/kb/2117917
+        <br />
+    - Applied changes to Text Layers as follows:
+        <br />
+    &nbsp;&nbsp;&nbsp;
+	- Unicode support for text layers (including Cyrillic, Arabic and Asian character sets)<br />
+    &nbsp;&nbsp;&nbsp;
+	- Removed popup after loading text file<br />
+    &nbsp;&nbsp;&nbsp;
+	- Fixed text updating interval for not being applied on some situations while creating the text layer<br />
+    &nbsp;&nbsp;&nbsp;
+	- Changed minimum text update interval from 5 to 1 seconds<br />
+    &nbsp;&nbsp;&nbsp;
+	- Removed saving the text file content to settings file to prevent cluttering and for some situations corrupting the settings file<br />
+    <br />
+    <strong>0.6.0.9</strong><br>
+    - Fixed an issue with MP4 files getting corrupted while recording to harddrive<br />
+    <br />
+    <strong>0.6.0.8</strong><br>
+    - Fixed an issue with FFsource closing improperly<br />
+    - Fixed an issue with Updater Dll dependancy<br />
+    <br />
+    <strong>0.6.0.7</strong><br>
+    - Fixed an updater crashing issue due to non-removable files locked by third-party applications<br />
+    - Fixed LastErrorLog.txt error issue<br />
+    - Fixed patchnotes not showing in updater<br />
+    - Fixed “backgroundWorker” not closing properly when stream fails to connect<br />
+    <br />
+    <strong>0.6.0.6</strong><br>
+    - Added patch notes when asking for update<br />
+    - Fixed an issue with FFsource crashing with certain video capture devices<br />
+    - Fixed auto-updater for overall faster loading<br />
+    <br />
+    <strong>0.6.0.4</strong><br>
+    - Fixed another crash when copying debug log multiple times<br />
+    - Added more debug info related errors<br />
+    <br />
+    <strong>0.6.0.3</strong><br>
+    - Fixed a possible crash when copying debug log<br />
+    <br />
+    <strong>0.6.0.2</strong><br>
+    - Added support for multiple instances of a capture source. You can now add your camera to multiple scenes.<br />
+    - Added Resolution and FPS selection when adding capture sources<br />
+    - Added improved directshow handling (adding/removing/scene changing)<br />
+    - Added error logging  for FFsource<br />
+    - Added GPU capabilities logging<br />
+    - Added error handler when trying to add FFsource to FFsource<br />
+    Notes:
+        Text source will only update when the string is a different length<br />
+    <br />
+    <strong>0.6.0.1</strong><br>
+    - Added more comprehensive debug information<br />
+    - Added help text on empty FFsource scene<br />
+    - Auto save logs of last session<br />
+    - Fixed Out of Memory Exception<br />
+    - Fixed settings not saving properly<br />
+    - Fixed scenes getting stuck after repeated removal<br />
+    - Screen region uses less resources when not streaming<br />
+    - Webcam Source is now Capture Source<br />
+    Notes:<br />
+    -
+        Generic GDI+ Exception may occur<br />
+    -
+        Dialog boxes will freeze the overlay and disconnect you. For now don’t edit the scene while streaming<br />
+    <br />
+    <strong>0.6.0.0</strong><br>
+    - Added FFsource (new scene management)<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added Scenes<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added multiple capture sources<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added all image formats<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added text, text File, online file, text update, scrolling text, text color<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added Webcam Source. (any software source will function)<br />
+    &nbsp;&nbsp;&nbsp;
+        - Added Experimental Screen Capture (full and region)<br />
+    - Fixed debug log causing lag on very large log files<br />
+    Notes:<br />
+    Generic GDI+ Exception may occur<br />
+    Out of Memory Exception<br />
+    Dialog boxes will freeze the overlay and disconnect you. For now don’t edit the scene while streaming<br />
+    If you’ve been receiving this error please update to the latest DirectX version here: http://www.microsoft.com/en-us/download/details.aspx?id=350.5.5.2<br />
+    <br />
+    <strong>0.5.5.2</strong><br>
+    - Fixed 30 second stream disconnect<br />
+    <br />
+    <strong>0.5.5.0</strong><br>
+    - You can now add your username in the streamkey setup. This will show you Viewer numbers and stream status (only for twitch/own3d)<br />
+    - Added Stream statistics!<br />
+    &nbsp;&nbsp;&nbsp;
+        - Current Framerate<br />
+    &nbsp;&nbsp;&nbsp; - Current Bitrate<br />
+    &nbsp;&nbsp;&nbsp; - Dropped Frames<br />
+    &nbsp;&nbsp;&nbsp; - Session Length<br />
+    &nbsp;&nbsp;&nbsp; - Bandwidth Used<br />
+    &nbsp;&nbsp;&nbsp; - Lifetime Statistics<br />
+    - Stream setup window now error checks your input<br />
+    - Fixed custom RTMP disappearing when you closed the window<br />
+    Notes:<br />
+    - If you’re experiencing crashes, please reinstall FFsplit or go to File > Reset<br />
+    - Automatic stream grabbing is disabled until a secure solution can be implemented<br />
+    - Stream setup works for Twitch.tv, Justin.tv and Own3d.tv only. Will be adding more in near future!<br />
+    <br />
+    <strong>0.5.4.0</strong><br />
+    -
+Added a stream configuration option for new users to setup their stream easily!<br />
+    - Click the Auto button to find the best server for you!
+        <br />
+    - Fixed an issue with custom RTMP ports not working properly.<br />
+    - Audio Engine has been reverted back to 0.5.3.0 until desync issue is looked at more closely. If you’re having this issue, please report it on the forums!<br />
+    Notes:<br />
+    - Automatic stream grabbing is disabled until a secure solution can be implemented<br />
+    - Stream setup works for Twitch.tv, Justin.tv and Own3d.tv only. Will be adding more in near future!<br />
+    <br />
+    <strong>0.5.3.2</strong><br />
+    - Added support for Mouse buttons (back and next)<br />
+    Notes:<br />
+    - Some anti-virus software may (falsely) flag FFsplit as malicious due to the way hotkeys are implemented. Please disable detection or add an exception if this is the case.<br />
+    <br />
+    <strong>0.5.3.1</strong><br />
+    - Updated audio filters with possible fix for users with audio desync / multiple soundcards<br />
+    - Fixed issue where FFsplit asked to update when the server could not be reached<br />
+    - Fixed a .net crash issue when update fails to complete
+Changes
+Added support for shift, ctrl, alt hotkeys<br />
+    <br />
+    <strong>0.5.3.0</strong><br />
+    - Added Hotkey Support (including Push to Talk)<br />
+    - Settings now saved between updates<br />
+    - Fixed issue with Debug Console not showing properly<br />
+    <br />
+    <strong>0.5.2.2</strong><br />
+    - File type selection for hard drive recording (FLV, MKV, MP4)<br />
+    - FFmpeg now exits properly (Thanks Roger)<br />
+    - Fixed Audio desync that appeared due to the changes in audio engine in the previous patch<br />
+    - Added additional debugging info for developers<br />
+    <br />
+    <strong>0.5.2.0</strong><br />
+    - Audio Engine has been updated!<br />
+    &nbsp;&nbsp;&nbsp; - Added stream volume control for both, Speaker and Microphone. Note that this only affects the stream volume levels and is independent of Windows sound options.<br />
+    &nbsp;&nbsp;&nbsp; - Most microphones are now fully supported. If it can record on Windows Sound Recorder, it should work with FFsplit!
+        <br />
+    - Updated batch files to properly register DirectShow filters, which was giving blank screen while streaming<br />
+    - Tab Index is working properly now<br />
+    - Fixed an issue with installer which downloads FFmpeg twice<br />
+    - Fixed an issue with the updater downloading every time FFsplit starts<br />
+    <br />
+    <strong>0.5.1.1</strong><br />
+    - Added command line arguments for FFmpeg for advanced users. Examples:
+    <br />
+    &nbsp;&nbsp;&nbsp; - <a href="http://ffmpeg.org/ffmpeg.html#Options-3">http://ffmpeg.org/ffmpeg.html#Options-3</a><br />
+    &nbsp;&nbsp;&nbsp; - <a href="http://mewiki.project357.com/wiki/X264_Settings">http://mewiki.project357.com/wiki/X264_Settings</a>
+    <br />
+    - Fixed Autoupdater getting stuck on certain files<br />
+    - Fixed TCP ports not binding properly for some users<br />
+    Notes: (See previous notes)<br />
+    <br />
+    <strong>0.5.1.0</strong><br />
+    - New WASAPI Audio Engine - Able to capture Multichannel Speaker outputs<br />
+    - Improved Debug logging<br />
+    - Added PayPal donation button<br />
+    - Multi-channel audio down mix will no longer cause the slow motion video<br />
+    - Most USB headset speakers should now work properly with FFsplit<br />
+    - Fixed FFmpeg incompatibility error message<br />
+    Notes: If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br />
+    <br />
+    <strong>0.5.0.4</strong><br />
+    - Fixed FFmpeg not updating to the correct version<br />
+    Notes: (See previous notes)<br />
+    <br />
+    <strong>0.5.0.3</strong><br />
+    - Fixed overlay giving you a black screen in low and medium quality<br />
+    - Fixed stream stopping while FFsplit keeps streaming<br />
+    Notes:<br />
+    - Directsound capture may give audio errors when using 5.1, please use Stereo, 44.1Khz, 16 bit if this is the case.<br />
+    - If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br />
+    <br />
+    <strong>0.5.0.2</strong><br />
+    - FFsplit will no longer keep encoding when you disconnect from the streaming server.<br />
+    - Fixed random black flashes on stream<br />
+    Notes:
+        <br />
+    - Overlay only works in High Quality<br />
+    - (See previous notes)<br />
+    <br />
+    <strong>0.5.0.1</strong><br />
+    - Fixed webcam sources artifacts<br />
+    - Fixed overlay quality not changing<br />
+    - Added Youtube livestream support<br />
+    Notes: (See previous notes)<br />
+    <br />
+    <strong>0.5.0.0</strong><br />
+    - Local recording is now in FLV format<br />
+    - Audio codec changed to AAC<br />
+    - Cam Source | DXTORY is now supported (+cam source only mode)<br />
+    - Multiple layers (picture in picture)<br />
+    - Window Tracking<br />
+    - Form Element Tracking (only capture certain elements of a window, very useful when games don’t have windowed borderless)<br />
+    - Fixed Backgroundworker issue<br />
+    - Updated RTMP handler
+        <br />
+    Notes:<br />
+    - Fixed Backgroundworker issue Updated RTMP handler<br />
+    - (See previous notes)<br />
+    <br />
+    <strong>0.4.3.0</strong><br />
+    - New RTMP Handler. This should fix the disconnect issues for MOST users.<br />
+    Notes:<br />
+    - Directsound capture may give audio errors when using 5.1, please use Stereo, 44.1Khz, 16 bit if this is the case.<br />
+    - While this will fix the disconnect issues for most people, some users are still reporting random disconnects. When you make a new thread of the forum please include your PC specifications, you internet speeds and the debuglog after a disconnect.<br />
+    - If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br />
+    <br />
+    <strong>0.4.2.0</strong><br />
+    - FFsplit overlay can now track the active window. Check the box on the second tab in the overlay manager to activate.<br />
+    - FFsplit overlay now captures at selected frame rate again!<br />
+    <br />
+    <strong>0.4.1.0</strong><br />
+    - Fixed stream stopping issue.<br />
+    - Fixed stream stuttering when Microphone source is not selected<br />
+    - Fixed a crash issue with Debug Log when copying to clipboard<br />
+    - Fixed support for Unicode characters in Audio Sources<br />
+    - Temporary files now deleting properly<br />
+    <br />
+    <strong>0.4.0.0</strong><br />
+    - Recording up to 60 fps<br />
+    - Simultaneous streaming and recording<br />
+    - Improved Audio Engine<br />
+    - MKV container format for local recording<br />
+    - You can now select where to save recordings and temp files<br />
+    - Improved Debug Console, can now be saved to drive or to clipboard<br />
+    - FFmpeg updated to latest stable<br />
+    - FFsplit remembers window position between sessions<br />
+    - RTMP link is now masked<br />
+    - Higher DPI Font is now supported<br />
+    - Stream Status shown at bottom<br />
+    - Installer and updater now run as admin<br />
+    - No longer need to close programs that use webcam hooks during update<br />
+    - Now shows proper icon in windows sound mixer<br />
+    - Fixed repeating frame issue, encoding will now stop when there is a problem<br />
+    <br />
+    <strong>0.3.5.10</strong><br />
+    -
+    Fixed an issue with FFsplit crashing when streaming.<br />
+    <br />
+    <strong>0.3.5.9</strong><br />
+    -
+    Hotfix for previous version
+    <br />
+    <br />
+    <strong>0.3.5.8</strong><br />
+    -
+    Fixed an issue with stream stuttering.
+    <br />
+    <br />
+    <strong>0.3.5.7</strong><br />
+    -
+    Fixed an issue with high CPU usage.
+    <br />
+    <br />
+    <strong>0.3.5.6</strong><br />
+    -
+    Removed Java TCP relay component. Multilanguage is now supported.
+    <br />
+    <br />
+    <strong>0.3.5.5</strong><br />
+    -
+    Hotfix for previous version. Overlay Manager works again!
+    <br />
+    <br />
+    <strong>0.3.5.4</strong><br />
+    -
+    FFsplit Overlay now supports screen region cropping and optional mouse display
+    <br />
+    <br />
+    <strong>0.3.5.3</strong><br />
+    -
+    Fixed this issue. Overlay Manager now closes properly when streaming.
+    <br />
+    <br />
+    <strong>0.3.5.2</strong><br />
+    -
+    UAC detection added. Auto updater mechanism changed.
+    <br />
+    <br />
+    <strong>0.3.5.1</strong><br />
+    -
+    Fixed Overlay Manager. Fixed audio sync issues.
+    <br />
+    <br />
+    <strong>0.3.5.0</strong><br />
+    -
+    Re-enabled Microphone support. Works with Default Playback Device.
+    <br />
+    <br />
+    <strong>0.3.4.9</strong><br />
+    -
+    Updated to FFsplit Overlay 1.8 and minor bugfixes
+    <br />
+    <br />
+    <strong>0.3.4.7</strong><br />
+    -
+    Fixed an issue with screen capturing at low quality
+    <br />
+    <br />
+    <strong>0.3.4.6</strong><br />
+    -
+    Fixed an issue with Audio Sources disappearing requiring FFsplit to restart
+    <br />
+    <br />
+    <strong>0.3.4.5</strong><br />
+    -
+    Fixed an issue with filter installation conflicting with Autoupdater
+    <br />
+    <br />
+    <strong>0.3.4.4</strong><br />
+    -
+    Updated FFsplit overlay source
+    <br />
+    <br />
+    <strong>0.3.4.3</strong><br />
+    -
+    Hotfix #2. Temp files now delete properly
+    <br />
+    <br />
+    <strong>0.3.4.2</strong><br />
+    -
+    Hotfix #1. Added a countdown when streaming
+    <br />
+    <br />
+    <strong>0.3.4.1</strong><br />
+    -
+    FFsplit closes any additional processes still running after closing
+    <br />
+    <br />
+    <strong>0.3.4.0</strong><br />
+    -
+    Refined image overlay management system. Added native audio capturing.
+    <br />
+    <br />
+    <strong>0.3.3.0</strong><br />
+    -
+    Added native screen capturing with static image overlay. Internal Release only
+    <br />
+    <br />
+    <strong>0.3.2.0</strong><br />
+    -
+    Added a new secure updating system
+    <br />
+    <br />
+    <strong>0.3.1.10</strong><br />
+    -
+    Fixed issue with stream stopping early
+    <br />
+    <br />
+    <strong>0.3.1.6</strong><br />
+    -
+    Fixed an issue with audio source using 48KHz sample rate
+    <br />
+    <br />
+    <strong>0.3.1.5</strong><br />
+    -
+    Fixed an issue with stream closing early
+    <br />
+    <br />
+    <strong>0.3.1.4</strong><br />
+    -
+    Added an option to automatically check for update
+    <br />
+    <br />
+    <strong>0.3.1.3</strong><br />
+    -
+    Added an autoupdater with FFsplit
+    <br />
+    <br />
+    <strong>0.3.1.2</strong><br />
+    -
+    Reverted changes from 0.3.1.1 along with minor bug fixes
+    <br />
+    <br />
+    <strong>0.3.1.1</strong><br />
+    -
+    Fixed video audio sync issues
+    <br />
+    <br />
+    <strong>0.3.1.0</strong><br />
+    - Added support for newer recording hardware
+    <br />
+    <br />
+    <strong>0.3.0.0</strong><br />
+    - Public Alpha Release
+    <br />
+</p>
