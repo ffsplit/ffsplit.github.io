@@ -10,7 +10,7 @@
     <head>
         <meta charset=utf-8>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pluton Theme by BraphBerry.com</title>
+        <title>FFSplit - Steaming Software</title>
         <!-- Load Roboto font -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <!-- Load css styles -->
@@ -30,6 +30,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
         <link rel="shortcut icon" href="images/ico/favicon.ico">
+        
         <style type="text/css">
             /*Custom CSS to override theme. Placed here for simplicity. */
             .da-arrows {
@@ -388,23 +389,61 @@
                     <div class="title">
                         <h1>Contact Us</h1>
                         <p>Enter contact details here.</p>
+                        <!-- Contact form -->
+                        <div class="container">
+                            <div class="row-fluid centered">
+                                <div class="span5 contact-form centered">
+                                    <h3>Say Hello</h3>
+                                    <div id="successSend" class="alert alert-success invisible">
+                                        <strong>Well done!</strong>Your message has been sent.
+                                    </div>
+                                    <div id="errorSend" class="alert alert-error invisible">There was an error.</div>
+                                    <form id="contact-form" action="php/mail.php">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input class="span12" type="text" id="name" name="name" placeholder="* Your name..." />
+                                                <div class="error left-align" id="err-name">Please enter name.</div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <input class="span12" type="email" name="email" id="email" placeholder="* Your email..." />
+                                                <div class="error left-align" id="err-email">Please enter valid email adress.</div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <textarea class="span12" name="comment" id="comment" placeholder="* Comments..."></textarea>
+                                                <div class="error left-align" id="err-comment">Please enter your comment.</div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">    
+                                            <div class="controls">
+                                                <button id="send-mail" class="message-btn">Send message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End contact form -->
                     </div>
                 </div>
                 <div class="container">
-                    <div class="span9 center contact-info">
+                    <!-- <div class="span9 center contact-info">
                         <p>123 Fifth Avenue, 12th,New York,NY 10010</p>
                         <p class="info-mail">ourstudio@somemail.com</p>
                         <p>+11 234 567 890</p>
-                        <!-- <div class="title"><h3>We Are Social</h3></div> -->
-                    </div>
+                        <div class="title"><h3>We Are Social</h3></div>
+                    </div> -->
                     <div class="row-fluid centered">
                         <ul class="social">
-                            <li><a href="http://goo.gl/RqhEjP" target="_blank"><span class="icon-facebook-circled"></span></a></li>
-                            <li><a href="http://goo.gl/hUfpSB" target="blank"><span class="icon-twitter-circled"></span></a></li>
-                            <li><a href=""><span class="icon-linkedin-circled"></span></a></li>
-                            <li><a href=""><span class="icon-pinterest-circled"></span></a></li>
-                            <li><a href="http://goo.gl/k9zAy5" target="_blank" ><span class="icon-dribbble-circled"></span></a></li>
-                            <li><a href=""><span class="icon-gplus-circled"></span></a></li>
+                            <!-- <li><a href="" target="_blank"><span class="icon-facebook-circled"></span></a></li> -->
+                            <li><a href="" target="blank"><span class="icon-twitter-circled"></span></a></li>
+                            <!-- <li><a href=""><span class="icon-linkedin-circled"></span></a></li> -->
+                            <!-- <li><a href=""><span class="icon-pinterest-circled"></span></a></li> -->
+                            <!-- <li><a href="" target="_blank" ><span class="icon-dribbble-circled"></span></a></li> -->
+                            <!-- <li><a href=""><span class="icon-gplus-circled"></span></a></li> -->
                         </ul>
                     </div>
                 </div>
