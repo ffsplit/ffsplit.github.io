@@ -1,4 +1,0 @@
-- Reverted Bilinear filtering fix, using Lanczos filtering on all systems
-- Fixed resized layers not showing properly
-- Fixed crashing issues on program exit
-- Minor updater fixes

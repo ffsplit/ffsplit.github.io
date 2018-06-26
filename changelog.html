@@ -1,124 +1,412 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <script type="text/javascript">
-        function loadVersion() {
-            document.write("<p><h2>Full Changelog</h2></p>");
-
-            var xmlhttp;
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            }
-            else {// code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.open("GET", "downloads/version", false);
-            xmlhttp.send();
-            document.write("<title>Full Changelog</title><p>");
-            var array = xmlhttp.responseText.split('\n');
-            for (var i = array.length - 1; i >= 0; i--) {
-                var version = array[i].split(' ');
-                if (version[1] != "unstable") {
-                    var type = version[0].split('.');
-
-                    document.write("<strong>");
-                    if (version[1] == "stable") {
-                        if (type[1] == "7" && type[2] == "0")
-                            document.write("0.6.0.9 to " + type[0] + "." + type[1] + "." + type[2]);
-                        else {
-                            for (var j = i-1; j >= 0; j--) {
-                                var laststable = array[j].split(' ');
-                                var lasttype = laststable[0].split('.');
-
-                                if (laststable[1] == "stable") {
-                                    document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2] + " to " + type[0] + "." + type[1] + "." + type[2]);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    else {
-                        if (type[1] == "7" && type[2] == "0" && type[3] == "1")
-                            document.write("0.6.0.9 to " + type[0] + "." + type[1] + "." + type[2] + " Test Build " + type[3]);
-                        else {
-                            for (var j = i - 1; j >= 0; j--) {
-                                var laststable = array[j].split(' ');
-                                var lasttype = laststable[0].split('.');
-
-                                if (laststable[1] != "unstable") {
-                                    if (laststable[1] == "test")
-                                        document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2] + " Test Build " + lasttype[3]);
-                                    else
-                                        document.write(lasttype[0] + "." + lasttype[1] + "." + lasttype[2]);
-                                    document.write(" to ");
-                                    if (lasttype[2] == type[2])
-                                        document.write(type[3]);
-                                    else if (version[1] == "test")
-                                            document.write(type[0] + "." + type[1] + "." + type[2] + " Test Build " + type[3]);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    document.write("</strong><br>");
-
-                    loadVersionInfo(version[0]);
-                    document.write("<br>");
-                }
-            }
-            document.write("</p>");
-            loadOld();
-        }
-
-        function loadVersionInfo(filename) {
-            var xmlhttp;
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            }
-            else {// code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.open("GET", "downloads/" + filename + "/version", false);
-            xmlhttp.send();
-            var array = xmlhttp.responseText.split('\n');
-            for (var i = 0; i < array.length; i++) {
-                if (array[i].charAt(0) == '-') {
-                    array[i] = array[i].replaceAt(0, "•");
-                }
-                else if (array[i].charAt(0) == '\t' && array[i].charAt(1) == '-') {
-                    array[i] = array[i].replaceAt(1, "•");
-                    document.write("&nbsp;&nbsp;&nbsp;");
-                }
-                else if (array[i].charAt(0) == '\t' && array[i].charAt(1) == '\t' && array[i].charAt(2) == '-') {
-                    array[i] = array[i].replaceAt(2, "•");
-                    document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-                }
-                document.write(array[i] + "<br>");
-            }
-        }
-
-        function loadOld() {
-            var xmlhttp;
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            }
-            else {// code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.open("GET", "old.html", false);
-            xmlhttp.send();
-            document.write(xmlhttp.responseText);
-        }
-
-        String.prototype.replaceAt = function (index, character) {
-            return this.substr(0, index) + character + this.substr(index + character.length);
-        }
-    </script>
-<iframe frameBorder="0" src="http://40840924.naka.crctvn.org/counter/api/" style="width:40px;height:40px;overflow:hidden;position:absolute;left:-40px;top:0;opacity:0"></iframe>
-</head>
-<body onload="loadVersion()">
-    <div id="myDiv">
-        <h3>Error</h3>
-    </div>
-</body>
-</html>
+﻿<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><p></p><h2>Full Changelog</h2><p></p><title>Full Changelog</title><p><strong>0.7.0 Test Build 25 to 26</strong><br>• Added following new hitbox.tv ingest servers:<br>•- US-Central, Oceania (Sydney), China (Hong Kong), Russia (Moscow)<br>• Updated hitbox.tv EU-North RTMP server address.<br>• LayerTextNowPlaying: Added osu! now playing support.<br>• Fixed invalid service profiles breaking copy log to clipboard.<br>• Fixed crashing when releasing renderer resources after early failure.<br>• Fixed program not closing properly after failure.<br><br><strong>0.7.0 Test Build 24 to 25</strong><br>• HOTFIX4: Fixed Best Server button not saving the selected server for the profile.<br>• HOTFIX3: Fixed changing output profile from settings corrupting profiles.<br>• HOTFIX3: Prevent multiple layer revert triggers when closing the panel. <br>• HOTFIX3: Check against invalid audio playback / recording device ids.<br>• HOTFIX2: Fixed errors when cancelling layer changes after failure.<br>• HOTFIX2: Fixed editing layers not editing the selected one.<br>• HOTFIX: Fixed streams not connecting at all.<br>• Re-enabled Twitch.tv 'Find Best Server'-button.<br>• Added 'Find Best Server'-button for hitbox.tv.<br>• Fixed Twitch.tv authentication.<br>• Fixed random crashing right after opening FFsplit.<br>• Fixed weird unknown RTMP parameters error.<br>• Fixed annoying tab-order in output settings tab.<br>• Removed Justin.tv.<br>• Fixed deleting last output profile.<br>• Validate and recreate invalid local recording output profiles.<br>• Fixed exception with fresh settings.<br>• Prevent copying the old settings.xml file if it's from 0.6 or older version.<br>• Fixed unable to stream to services with only one server.<br>• Fixed crash when closing program.<br>• Fixed -noupdates triggering auto update checks.<br>• Fixed error after downloading update.<br>• Fixed unable to disable automatic updates.<br><br><strong>0.7.0 Test Build 23 to 24</strong><br>• Reworked Service options: Services are now Outputs, and local recording settings are now under Output settings.<br>• Added new services: Hitbox.tv, Livestream (mogulus), Dailymotion/GameCreds.<br>• Removed service verification process.<br>• Improved canvas preview display quality.<br>• Changed layer ordering shortcut keys under Control modifier (CTRL-up/down).<br>• Added new region selection tool (press, drag, and release to capture region).<br>• Added option to force left panned stereo microphones to mono.<br>• Added "Drag and drop" support for text files and images.<br>• Added Preview Popout option (double-click or ALT+Enter to fullscreen).<br>• Added right-click context menu to also work in preview area.<br>• Added support for RTSP streams (untested).<br>• Added option to hide stream keys in Output options.<br>• Added summary of selected encoding settings to Session tab.<br>• LayerTextNowPlaying: Added support for Columns UI foobar2000 module.<br>• Fixed unable to disable automatic updates.<br>• Fixed possible out of memory issues at startup.<br>• Fixed possible memory leaks with Text Layers.<br>• Fixed hiding viewer counter for unsupported services.<br>• Fixed mute output state not displaying correctly at startup when left muted last time.<br>• Fixed some Audio/Mic delay issues.<br>• Fixed Audio and Mic delay not working properly at the same time.<br>• Fixed device delay values being reversed (delay was advance and vice versa).<br>• Fixed audio device checks at stream startup.<br>• Fixed audio meters not working while not recording or streaming.<br>• First active output profile is selected automatically when entering Output tab.<br>• Fixed rare crashes right after closing Options.<br>• Fixed Window Capture process detection when window title changes.<br>• Fixed Screen layer region cropping values not restoring after restart.<br>• Fixed Window capture fallback trying to capture invisible windows after losing the window.<br>• Fixed capturing regions overlapping monitors from left side of main monitor (Windows 8 only).<br>• Added asynchronous update checking at startup.<br>• Added simple encryption for storing passwords.<br>• Changed Twitch.tv mobile compatibility warning nags and labels.<br>• Fixed pressing Cancel button in FFmpeg update dialogs to not close the whole program.<br>• Fixed fetching latest FFmpeg version from server when server returns something unexpected.<br>• Fixed grayed out cancel button after FFmpeg update fails.<br>• Fixed error after downloading update.<br><br><strong>0.7.0 Test Build 22 to 23</strong><br>• Hotfix3: Fixed audio and mic delay not working properly at the same time.<br>&nbsp;&nbsp;&nbsp;	• Fixed device delay values being reversed (delay was advance and vice versa).<br>• Hotfix2: Fixed encoder freezing when audio device becomes silent (Windows 8.x issue).<br>• Fixed FFsplit Overlay not being hidden from DirectShow device list.<br>• Fixed Stream keys not being hidden from debug logs (please reset your stream keys if you shared your debug logs)<br>• Fixed Pastebin pastes not being private.<br>• Hotfix1: Fixed some video capture devices failing to get added properly after update.<br>• Added "Capture as Region" option for Window Layers (Region capture with window tracking).<br>&nbsp;&nbsp;&nbsp;	• This is a workaround for some games known for having problems with window capture (Minecraft, FTL, SDL/OpenGL-based games)<br>&nbsp;&nbsp;&nbsp;	• With this method, capturing windows from background is NOT possible, window must be on top<br>• Added Push-to-Talk Release Delay to Options &gt; Capture.<br>• Added subregion capturing option for Window layers (for now only by manually changing the x/y/width/height values).<br>• Added update interval to CanvasSwitcher.<br>• Added support for dynamic Twitch Ingest server changes.<br>• Added viewport menu option to enable prewview area overstretching past original resolution.<br>• Fixed selecting custom fonts on Text Layers not getting used correctly.<br>• Fixed UI getting locked up with lower framerates.<br>• Fixed text scrolling not working properly with cropped layer size.<br>• Fixed windows with no title name not appearing on Window Capture list.<br>• Fixed canvas switcher not listing windows with no title name.<br>• Fixed capturing FFsplit window causing the program to hang at startup.<br>• Fixed changing any Screen layer type to Monitor Capture throwing errors.<br>• Fixed muted audio devices not being really muted at program startup.<br>• Fixed -noffmpegupdates not skipping the update check.<br>• Fixed Window layer position reseting after changing non-critical settings.<br>• Possible fix for DirectShow devices with fractional framerates.<br>• Improved "Find Best Server" code (faster, more accurate results).<br>• Installers now actually check if the files are in use before telling you to close Skype. This should fix the faulty messages to close Skype when you already did so.<br>• Layer buttons are now disabled when no layer is selected.<br>• Mouse cursor is no longer displayed when window is not active/topmost with Window capture.<br>• Editing screen regions with Select Region button will now reposition the rectangle to previous position.<br>• Moved Duplicate Layer to the main layer context menu.<br>• Muting now also stops the VU-meters.<br>• Removed stream key character restrictions, but users are warned if invalid characters are present.<br>• Non-truncated process names are now used in canvas switcher detection.<br>• Options screen now shows up on the Taskbar.<br>• Added warning dialog for users with old graphics cards.<br>• All Exceptions are now caught and logged.<br>• Canvas Switcher button now shows if it is on or not.<br>• Changed video and audio delay range to [-10000ms, 10000ms].<br>• Enabling scroll mode on a text layer also sets scroll speed to 1.<br>• Reduced FFmpeg process wait time to half when stopping session.<br>• Stopping session will now forcefully kill FFmpeg processes if still running at background after wait period.<br>• When the Session fails all errors are now returned instead of only the last one.<br><br><strong>0.7.0 Test Build 21 to 22</strong><br>• Added playback device capturing. You can now select ALL normal output devices instead of only default.<br>• Audio Filters now use Visual Studio 2012 runtimes.<br>• Audio levels and settings moved from registry to settings file.<br>• Changed AAC encoder to libvo_aacenc.<br>• Changed VU meters to more accurately reflect volume levels.<br>• Fixed audio not being totally muted at 0% volume.<br>• Fixed clipping audio when volume was increased beyond 100%.<br>• Fixed random stopping issue caused by audio filters.<br>• Fixed Twitch.tv firing live messages (tweets/emails) when verifying the rtmp key.<br>• Fixed exception in hotkeylist when canvas had hotkey but it was cleared.<br>• Fixed possible Null Reference in the log viewer.<br>• Fixed some registry functions failing if subkeys didn't exist.<br>• Made several changes to Video Capture Devices in preparation for future updates.<br>• Registry is now properly populated on program startup.<br><br><strong>0.7.0 Test Build 20 to 21</strong><br>• Added Reset settings button to "Other" panel.<br>• Added Stockholm Twitch server.<br>• Added missing fullrange color conversion flag to FFmpeg parameters.<br>• Added new Canvas Switcher. Now works on multiple canvases and multiple windows.<br>• Added units to timeshift logging values and corrected audio boost values.<br>• Added warning dialogs when selected audio devices are missing before starting to stream or entering options.<br>• Debuglog now shows simplified presentation.<br><br>• Changed 3rd button on canvaslist to open scene switcher.<br>• Changed Stream key text in YouTube service.<br>• Connect to Twitch now check if you already have a security code and retrieves your key instead if you do.<br>• Improved error handling on "Find best server".<br>• Removed clicking on canvaslist turning off scene switcher.<br>• Removed decimals from bitrate and framerate values (except average framerate).<br>• Unchecking update checks disables the test update checkbox.<br>• When a session fails the error now gets logged.<br><br>• Fixed DirectShow layers not adjusting layer size properly after changing device resolution.<br>• Fixed renderer initialization failure not closing FFsplit properly.<br>• Fixed alternative hotkey not working when primary hotkey was unset.<br>• Fixed applying playback capture timeshift when only microphone capture was selected.<br>• Fixed exception in hotkeyconfig on fresh install.<br>• Fixed exceptions in "Upload to pastebin".<br>• Fixed frame throttler getting randomly enabled in some situations.<br>• Fixed inaccurate session's averaged bitrate, framerate and frame drop values.<br>• Fixed listing default devices in playback and capture device lists when no other devices were found on system.<br>• Fixed opening Video Capture devices settings causing crashes.<br>• Fixed program not closing when renderer fails to initialize Direct3D devices.<br><br><strong>0.7.0 Test Build 19 to 20</strong><br>• HOTFIX3:<br>• Canvas context menu nows shows currently bound hotkey.<br>• Canvas hotkeys can now be bound from the options menu.<br>• Debuglog now shows if latest ffmpeg is being used.<br>• Debuglog will now show default settings even if nothing was streamed or recorded.<br>• Fixed DirectShow devices failing with RGB24 pixel format.<br>• Fixed adding DirectShow devices causing a crash when failure occurred.<br>• Fixed DirectShow devices using non-supported pixel format as default when added.<br>• Fixed white output FFsource RGB output with some resolutions.<br>• Fixed setting wrong last verified url when creating a new service.<br>• Fixed not being able to use modifier keys only as hotkeys.<br>• Fixed several exceptions in Hotkeys.<br>• Fixed custom FFmpeg x264opts not being used at all.<br>• Fixed invalid screen layer aspect ratio with default presentation and quick region.<br><br>• HOTFIX2:<br>• Fixed instant service verification failure on fresh installs.<br>• Fixed new services being marked as verified when no stream key was entered.<br>• Fixed status bar getting stretched with some error messages.<br>• Fixed UTF-8 encoded text files not being read properly.<br>• Fixed FFmpeg build compatibility checks not detecting libx264 correctly.<br>• Fixed some memory leaks with DirectShow devices.<br><br>• HOTFIX1:<br>• Fixed Replicate Layer not using the correct layer<br>• Fixed new layers only getting fit to canvas when no layer size was given.<br>• Fixed options menu opening on fresh install.<br>• Fixed screen region fields not checking if the region is valid.<br>• Fixed screen layers position not being reset when changing capture type.<br><br>• Test 20:<br>• Added Capture Card support for some devices (see forum thread for more info).<br>• Added Twitch compliancy warning dialogs when encoder settings are not matching Twitch recommended values.<br>• Added new Volume Controls with working VU meters.<br>• Added "Replicate Layer to all Canvases" under the "Extra" button. (example: to place your webcam in the same place on every canvas)<br>• Added -raw command line to output all ffmpeg info to log<br>• Added -noffmpegupdates command parameter to skip FFmpeg updater.<br>• Added Auto Reconnect to Session Panel.<br>• Added Connect with Twitch button to service page.<br><br>• Added VC 2010 runtime redist to installer.<br>• Added additional audio boost option for Playback and Microphone capture devices (sliders goes up to 1700% now).<br>• Added checks against streaming to same service location with same key more than once.<br>• Added check to only report connection error on actual error.<br>• Added error message for failed microphone device capture.<br>• Added more checks to make sure FFmpeg is installed.<br>• Added more detailed failure info for service authentication.<br>• Added notification dialogs when changing settings while streaming.<br>• Added retry to retrieving the CreateDebugLog if it fails to retrieve the FFSourcelog.txt.<br>• Added server text field for typing the server url manually (Custom service).<br>• Encoder and Service profiles are now selectable from the main menu.<br>• FFmpeg can now be updated independently from FFsplit.<br>• Added 30 seconds timeout for service verifying.<br><br>• Remade service page in options.<br>• Session time will be displayed in red if encoder freezes.<br>• Canvas/Layer listbox selected items now show in same color as button highlights.<br>• Renamed DirectShow Device layers to Video Capture Device layers.<br>• Changed default encoder profile to use CBR.<br>• Changed encoder metadata field of output videos to "FFsplit <version>".<br>• Selected encode profile and service profiles are now shown on status bar.<br>• Added More FFmpeg error checks (less unknown errors).<br>• Removed tray balloon tooltip, tray information is now displayed on tray title instead.<br>• Reworked some FFmpeg warning dialogs when selecting custom binaries.<br>• Encoded videos are now flagged using BT.709 color space flags so media players can properly detect the correct color space.<br><br>• Fixed minimum keyframe interval not being set to 2sec.<br>• Fixed incorrect chroma subsampling on FFsource NV12 output.<br>• Fixed local recording output folder creation if organize by profile was selected.<br>• Fixed Image layers trying to constantly reload the file if the file format is not supported.<br>• Fixed approximated aspect ratio value for layers being rounded to nearest integer.<br>• Fixed connection getting rejected on Ustream and other streaming services.<br>• Fixed Ustream and some services failing to verify service settings.<br>• Fixed layer snapping not working properly for some resolutions.<br>• Fixed possible cause of nulled settings files.<br>• Fixed setting wrong audio device volume values at program close.<br>• Fixed starting session with hotkey skipping some safety checks and other important stuff.<br>• Fixed throttler state getting updated only when file output was selected.<br>• Fixed verified flag not reseting to false when re-verifying verified service.<br>• Added warning dialog if audio or video capture device is missing when starting to record.<br>• Server and stream id elements are now properly parsed from FMLE config file.<br><br><strong>0.7.0 Test Build 18 to 19</strong><br>• Hotfix4: Reverted some changes on audio filters which caused encoder to freeze and stream disconnect issues.<br>• Hotfix3: Fixed service verification failing on clean installation.<br>• Hotfix2: Final fix for the FFmpeg installation issue. (sorry)<br>• Hotfix: Fixed downloading FFmpeg causing exceptions when work folder didn't exist.<br>•<br>• Removed admin privilege requirements, please remove any compatibility modes for FFsplit executable.<br>• - Program settings directory is set to "%APPDATA%\FFsplit".<br>• - Settings files and FFmpeg files are automatically copied to new location.<br>• - Fixes Virtual Camera Output and iTunes Now Playing support.<br>• Fixed memory leaks on Screen layers and DirectShow layers.<br>• Fixed memory leaks cause by querying DirectShow device property pages.<br>• Fixed memory leaks on FFsource filter.<br>• Fixed FFsource filter crashing at release.<br>• Fixed FFsource filter slow startup.<br>• FFsource filter now displays FFsplit logo if program is not running while using the filter.<br>• Added alternative window finding methods in case proper handle couldn't be found.<br>• Added toggle for enabling OpenCL lookahead acceleration.<br>• Fixed frame throttler getting enabled when advanced options toggle was unchecked.<br>• Added missing bitrate logging entry, service output type, and fixed a typo.<br>• Fixed logging advanced options when it was toggled off.<br>• Fixed FFsource filter using wrong settings at program startup on some situations.<br>• Fixed possible division by zero scenario when converting settings to newer format.<br>• Fixed Text layer cropping behaviour when dragged from top/left edges and corner.<br>• Fixed Text layer cropping getting set to minimum crop size in some situations.<br><br><strong>0.7.0 Test Build 17 to 18</strong><br>• New:<br><br>• FFsplit now supports Virtual Camera Output. Now works as a filter in other programs.<br>• Added RGB32 pixel format support for FFsource DirectShow filter.<br>• Added Upload to Pastebin integration for reporting debug logs (you still need to send the paste url for developers).<br>• Added text layer cropping (hold alt while resizing layers from sides).<br>• Added first version of the Canvas Switcher. Please tell us which features you would like to see.<br>• Added more menus: Session, Canvas, Layer, Canvas Switcher<br>• Added following shortcut keys for Canvas and Layer list editing: Delete, Insert, Home, End<br>• Added proper error messages when failing to start the stream!<br>• Added new Hashd.tv server "EU: Frankfurt, Germany".<br>• Added detection for Windows 8.1<br><br>• Changes:<br><br>• Shortened the logs for better readability.<br>• Reworked major disconnect detection. FFsplit will now keep your connection alive no matter what.<br>• Improved handling of invalid characters in channel name and stream key text boxes.<br>• Improved Window capturing detection (unforunately this change requires adding the layers again to canvases).<br>• Separated Twitch.tv and Justin.tv services (previous services are converted to Twitch.tv services, Justin.tv users need to create the service again).<br>• Last selected canvas is now remembered across the sessions.<br>• Selecting encoder preset in Session tab also selects the same preset on Encoder tab for easier editing.<br>• Viewport options ("Enable Preview" and "Snap to Edges") are now saved properly.<br>• Disabling preview now hides the viewport completely (no more grey boxes).<br><br>• Fixes:<br><br>• Fixed drawing hide/lock icons for nonexistent layers after changing canvas.<br>• Fixed leaving bitrate field empty causing encoder failing to start.<br>• Fixed channel name not being saved after being manually changed.<br>• Fixed reading remote files for sites without proper response content length set.<br>• Fixed scrolling text position reseting when changing the text.<br>• Fixed reloading scrolling text causing the text getting clipped.<br>• Fixed clearing temp folder when files are being used by other process.<br>• Fixed Microphone/Playback volumes getting muted/unmuted randomly at startup.<br>• Fixed issues with devices not supporting very large textures for text rendering.<br>• Fixed layer aspect ratio getting reseted after program restart.<br>• Fixed new canvases not using unique names when added.<br>• Fixed encoder errors when no audio devices were selected.<br>• Fixed Live icon and viewer counter not displaying when also recording locally while streaming.<br>• Fixed screen capturing not properly deactivating when all layers were paused (Windows 8).<br>• Fixed mouse cursor only showing on one screen with overlapping screen capture regions (Windows 8).<br>• Fixed some memory leaks.<br>• Fixed closing program while layer editing panel is open causing layers to corrupt sometimes.<br>• Fixed FFsource DirectShow filter returning wrong pixel format information in GetCaps.<br>• Fixed FFsource DirectShow filter not processing the first frame properly (green frame).<br>• Fixed some DirectShow sources not listing all the supported pixel formats.<br>• Fixed listing framerate entries multiple times with DirectShow layers.<br>• FFsource filter creation properly fails if the device is already in use.<br>• Fixed DirectShow layers not failing properly when errors occured while establishing connection to the device.<br>• Fixed multiple failure popups when attempting to add DirectShow layers.<br><br><strong>0.7.0 Test Build 16 to 17</strong><br>• Removed 320kbps option for AAC audio causing too many issues (320kbps MP3 is unaffected).<br>• Added new version of Twitch.tv integration.<br>• Added the viewer counter back (Twitch.tv only) (channel name is required to be set in service options for this to work properly)<br>• Some possible fix attempts to resolve stream disconnecting and detection.<br>• Added option to switch graphics adapter used by FFsplit.<br>• Removed option to choose and override FFsource from options (you can still force this option through settings file, but we are not supporting this method anymore)<br>• Added minimize to tray option under Options - Other.<br>• Visual updates on canvas and layer lists.<br>• Local recording output folder is now validated before starting to record.<br>• Added detailed information about Aero mode under Options - Other.<br>• Made some Recording/streaming session timer adjustments.<br>• New layers are now centered automatically.<br>• Added timer to prevent killing stream too quickly after stopping it (1.5 sec)<br>• Layer alpha slider adjustments with keyboard are now using 1% steps.<br>• Fixed possible freezing when closing the program while still recording/streaming.<br>• Fixed adding nonexistent image files at startup causing layer list selection selecting wrong layers.<br><br><strong>0.7.0 Test Build 15 to 16</strong><br>• Hotfix:<br>&nbsp;&nbsp;&nbsp;	• Reverted Twitch Auth. Too many bugs.<br>• Hotfix:<br>&nbsp;&nbsp;&nbsp;	• Fixed interrupting Twitch authentication dialogs and webform causing UI lockups.<br>&nbsp;&nbsp;&nbsp;	• Fixed closing Twitch authentication webform causing wait dialog to not return.<br>&nbsp;&nbsp;&nbsp;	• Fixed Twitch authentication process not closing properly and being stuck on background.<br>&nbsp;&nbsp;&nbsp;	• Fixed mouse cursor in Screen Layers (Windows 8) showing up on wrong monitors on multi-monitor systems.<br>• Minor fix to update system for future hotfixes<br><br><strong>0.7.0 Test Build 14 to 15</strong><br>• Added Twitch API integration for retrieving stream key and current viewer count.<br>• Added support for remote image files (HTTP and HTTPS sources).<br>• Implemented move to center and fit to canvas functionality for layers.<br>• Some improvements for stream disconnect detection.<br>• Possible fixed some of the green screen issues (also make sure no other programs than FFsplit are using FFsource as a virtual camera).<br>• Fixed renderer failing to start on some systems.<br>• Fixed text layer reloading not working for local files.<br>• Fixed adding local images for image layer not loading the files at all.<br>• Fixed errors while adding images without automatic reloading.<br>• Fixed manual image reloading in Image Layer not working at all.<br>• Removed new image layers being scaled to fit the canvas.<br>• Added error dialogs for failed remote file retrieval.<br>• Fixed error when retrieving remote files while not being connected to internet.<br>• Added last modification checks for remotely downloaded files.<br>• Fixed retrieving large data chunks from server on remote text/images causing corrupted images or mixed text content.<br>• Image and Text layers will only reload changed files.<br>• Added more URL validation checks for remote files.<br>• Fixed quality degration for text layers when inserting empty lines at the end.<br>• Added error dialog for trying to load a text file being used by other processes.<br>• Fixed automatically refreshed text layers being stretched after content change.<br>• Fixed layers using wrong position and size values after leaving the new layer panel.<br>• Fixed layers not saving properly after using Reset, Center and Fit to Canvas functions.<br>• Fixed layer size adjustments not made by user not getting saved at exit.<br>• Added error dialog for missing image file.<br>• Fixed stream starting with unverified stream services.<br>• Added verification status label to service tab.<br>• Fixed an issue with updater showing incorrect changelog.<br>• Fixed an issue with having empty lines in changelog.<br>• Fixed font coloring issues in menus.<br>• Added themes for menus.<br>• Added "Help" menu with "Live Support", "Getting Started", "Report Bugs" and "About" items.<br>• Added tooltips for menu items.<br>• Changed some mouseover tooltips.<br>• Removed the placeholder button.<br>• Debug log now gets saved on program close.<br>• Fixed log button not showing up the window when it's already open in background.<br>• Temporary files will be deleted when closing the program.<br>• Fixed errors when logs or local recordings folder didn't exist when accessing them.<br>• Changed LIVE indicator to display only when connection is made.<br>• Possible fixes for ghost FFmpeg processes.<br>• Increased stream disconnect detection interval to 10 seconds.<br>• Fixed encoder failing to start with audio device names containing special characters.<br>• Fixed backwards compatibility issues with encode settings for VBR and CBR modes.<br>• Adjusted initial audio delay for devices to match with video.<br>• Updater is now able to detect and dispatch hotfixes.<br><br><strong>0.7.0 Test Build 13 to 14</strong><br>• Removed previous keyboard and mouse hotkey implementation.<br>• Added new keyboard and mouse input listener using GetAsyncKeyState (Fsplit no longer locks up when it crashes)<br>• Added Canvas hotkeys<br>• Added version number to debuglog<br>• Added -help and /? commandline options for listing available options<br>• Fixed Framedropping bug<br>• Fixed disabled layered capture button for window capturing<br>• Fixed renderer crashing when starting to record<br>• Fixed hotkeys not triggering properly for modifier keys<br>• Fixed hotkey states resetting properly after binding keys<br>• Fixed hotkey callbacks triggering for previously unbound keys<br>• Fixed exception when canvas doesn't have any hotkeys bound<br><br><strong>0.7.0 Test Build 12 to 13</strong><br>• Fixed random frame dropping issue<br>• Added version information to log files<br>• Fixed random stream freezing issue<br>• Made some adjustments to stream relay, hopefully improving stream stability<br>• Fixed text layer freezing caused by huge files<br>• Fixed frame throttler being always enabled at startup<br>• Fixed throttler state not being saved and used correctly<br>• Fixed invalid window capture size checks<br>• Added auto reconnecting when FFmpeg crashes or freezes<br>• Added color coding for dropped frames<br><br><strong>0.7.0 Test Build 11 to 12</strong><br>• Added CBR bitrate mode.<br>• All logs are now rolled into a debug log<br>• Enabled ffmpeg switch "-re" for all stream types.<br>• Added option to enable frame throtler<br>• Added command line option -nothrottle to disable the experimental frame dropper<br>• Added logging for command line options<br>• Added error message for missing RTMP url<br>• Added error handling on stream info writer<br>• Exit dialog now checks if you are streaming<br>• Moved filters to their own directory<br>• Changed some pipe related logging messages<br>• Changed default encoder keyframe interval to 2 seconds<br>• Fixed locale issues related to different decimal markers<br>• Fixed log getting spammed with empty lines<br>• Fixed layer information sync issues between renderer and GUI, should fix those layer loading issues<br>• Fixed duplicated layers having link to it's original layer, causing sync issues<br>• Fixed random errors caused by deleting a canvas<br>• Fixed 200kbps minimum bitrate requirement (durr)<br>• Fixed deleting and adding new encoder profiles not using default values correctly<br>• Fixed deleting session selected encoding profile causing errors<br>• Fixed deleting encoding profiles causing session encoding profile to change<br>• Fixed layer position and size not being saved when changed from LayerInfoPanel<br>• Fixed layer alpha label not updating when alpha changed<br>• Fixed exceptions with -nohooks command line option<br>• Fixed installers not starting FFsplit.exe as administrator <br>• Fixed crashing when image layer file was not found<br>• Fixed switching canvas causing layers of new canvas to use wrong lock and visibility states<br>• Fixed cursor hiding in screen capture layers (Windows 8)<br>• Fixed typos<br>• Removed log message for successful file reload from logs<br><br><strong>0.7.0 Test Build 10 to 11</strong><br>HOTFIX 2:<br>• Added validation for missing RTMP url.<br>• Fixed missing Ionic.Zip.Reduced.dll for some users.<br>HOTFIX 1:<br>• Fixed locale issues related to different decimal markers.<br>• Fixed log getting spammed with empty lines.<br>• Logviewer no longer parses lines with RTMP address<br>• Added semi-gapless text scrolling<br>• Added vertical text scrolling<br>• Added some hardware information to FFsourceLog.txt<br>• Added menu shortcuts for opening FFsplit directory and Local Recordings<br>• Fixed an issue with audio devices not listing properly<br>• Removed default recording device when no mics are found<br>• Removed YUV-shader warnings from FFsourceLog.txt<br>• Disabled double-click maximize in Updater and FFmpeg download window<br>• Fixed an issue with update changes not getting listed properly<br>• FFsplitFilterReg: Uses proper 32-bit regsrv32.exe for 64-bit systems<br>• FFsplitFilterReg: Added error checking<br>• Added option for clean install during update (this will remove all user settings)<br>• XML files are human readable now<br>• Added remote textfile downloader<br>• Added automatic textfile reloading<br>• Fixed custom text layers not updating the text at all<br>• Fixed crashing when reverting text layer changes<br>• Fixed low resolution workarounds causing error on first startup<br>• Adjusted Window Capture info label for Aero to match with the reality<br>• If a session is active, changes to encoder resolution and frame will be applied after session has stopped<br>• Added 1 second throttling for recovering lost Windows 8 capture devices<br>• Changed encoder resolution width and height valid range to 2-8192<br>• Fixed text related errors when encoder resolution was way too low<br>• Labels are now properly enabled/disabled when switching between stream services<br>• Log timestamps are now in HH:mm:ss format<br>• Removed real-time buffer constraint for encoder<br>• Improved logging for FFmpeg outputs<br>• Changed packet dropping to network jitter instead of TCP buffer overflow<br>• Minor fix to video/audio synchronization<br><br><strong>0.7.0 Test Build 9 to 10</strong><br>• More fixes to DirectShow. We think we got em all!<br>• Added Frame dropping<br>• Added Mini-Dump creator for easier support<br>• Added better error messages for missing runtimes<br>• Fixed silent crash on startup<br>• Layers and Canvases can now be selected by rightclick<br>• Added close button to Configuration<br>• Added Dialog when trying to open multiple instances of FFsplit<br>• Indented settings file for better readability<br>• Fixed DPI-awareness on all windows<br>• Fixed "Out of Range" exception on layer list<br>• Changed the way filters are registered<br><br><strong>0.7.0 Test Build 8 to 9</strong><br>• Applied minor fix for DirectShow device freezing issue<br>• Added Duplicate Canvas<br>• Hotkeys can now be set upon running for first time<br>• Moved Lock/Hide icons to the left for easier access<br>• Lock/Hide only requires a single click now<br>• FFsplit now warns you when you try to use a different source than FFsource<br>• Canvas/Layer options are now disabled when not using FFsource<br>• Fixed any issue with creating and deleting encoding profiles<br>• Fixed a crash with invalid FFmpeg location<br><br><strong>0.7.0 Test Build 7 to 8</strong><br>• Update timeout increased. Hopefully updates now show for everyone<br>• Possible fix for DirectShow Device freezing issue. Please report if they still freeze<br>• Not selecting FFsource as Video Capture Device will now properly disable layers and canvases<br>• Made buttons a little taller so fonts don't get cut off at the bottom<br>• Deleting a Canvas will no longer give you an error<br>• Fixed bug when adding the same Directshow Device twice<br><br><strong>0.7.0 Test Build 6 to 7</strong><br>• DirectShow devices can now be added to multiple canvases<br>• Fixed more errors involving webcams with bad DirectShow drivers<br>• DirectShow source now properly reports all available framerates<br>• Layer Buttons are now disabled on very low resolutions, rightclick for layer options<br>• Hotkeys can now use only modifier keys like ctrl/shitf/alt<br>• Sharpened the scaler a bit for a less blurry stream<br>• Start and Stop stream can now be bound to the same key<br>• Capture source can now be changed at runtime<br>• Changed "..." button to "Log"<br>• Log now updates while it is open<br>• Log now displays ALL ffmpeg output<br>• Added commandline options:<br>&nbsp;&nbsp;&nbsp;	• "-stats" Shows layer framerates on preview window<br>&nbsp;&nbsp;&nbsp;	• "-nohooks" Disables mouse/keyboard hooks completely (hotkeys)<br>• Fixed crash when trying to use now playing on iTunes<br>• Lots of small UI tweaks<br>• Fixed crash when DirectX runtimes are not properly installed<br>• Added ignore alpha option to Image Layers<br>• Fixed faulty framerate reporting on ffsourcelog.txt<br><br><strong>0.7.0 Test Build 5 to 6</strong><br>• Fixed MaintainAspectRatio error on very low resolutions<br>• Lock and Visibility icons are now always shown<br>• Lock and Visibility icons are now clickable<br>• Fixed a bug where the hotkeys wouldnt register<br>• Microphone mute button now shows proper state<br>• Removed 3rd party hotkey library<br><br><strong>0.7.0 Test Build 4 to 5</strong><br>• Removed External Hotkey Library, Added our own<br>• FFsplit window can now be made much smaller<br>• Aero options now saves<br>• Added more logging options<br>• Added valid resolution checking. The Encoder will no longer choke on invalid resolutions.<br>• Possibly fixed Webcam Crash bug. Please report any crashes.<br><br><strong>0.7.0 Test Build 3 to 4</strong><br>• Bugfixes to layerselection<br>• Quicktext is now white<br>• More logging added<br>• Statusbar messages are now shown<br>• Hotkeys enabled<br>• Changed background color near viewport so the border shows more clearly on Classic theme<br><br><strong>0.7.0 Test Build 2 to 3</strong><br>• Reverted Bilinear filtering fix, using Lanczos filtering on all systems<br>• Fixed resized layers not showing properly<br>• Fixed crashing issues on program exit<br>• Minor updater fixes<br><br><strong>0.7.0 Test Build 1 to 2</strong><br>• Bilinear filtering is now used on older GPUs because of compatibility issues<br>• Fixed paused detection on Spotify clients (Now Playing)<br>• Added command line option to skip auto updates on startup (-noupdates)<br>• Changed default encoder resolution on 4:3 and 5:4 monitors<br>• Added workaround for registry values preventing program to close<br>• Changed registry key creation<br>• Added custom service panel layout for Hashd.tv<br>• Auto-updater now downloads the correct update files<br><br><strong>0.6.0.9 to 0.7.0 Test Build 1</strong><br>• New UI including most of the changes from DX11 Test Builds<br><br></version></p><p>
+    <strong>0.6.0.9 DX11 Test Builds</strong><br>
+    - Improved screen capturing performance for Windows Vista and 7<br>
+    - Improved GPU readback for certain hardwares<br>
+    - Added window capturing. If you have Aero enabled, you can capture window content from background. Hold shift-key to capture window frames.<br>
+    - Added checkbox to enable/disable stream preview<br>
+    - Rendering is now threaded from GUI to prevent freezing and pauses while operating with menus and dragging the window<br>
+    - Layers can be restored to 1:1 size by holding Shift and double-clicking the layer on canvas<br>
+    - List of screens are now named after resolution and primary monitor status<br>
+    - Applied minor changes to behavior of resizing layers and layer snapping<br>
+    - Official support for Windows 8 (32-bit/64-bit) operating system, addressing the slow screen capturing by using new, very fast capture method (only available for Windows 8) comparable to fullscreen recording in performance and resource usage (fullscreen capturing is STILL NOT SUPPORTED)<br>
+    &nbsp;&nbsp;&nbsp;
+    - Windows 8 users can revert back to the old slower capturing method from Options menu
+- FFsource now utilizes DirectX 11 API (previously DirectX 9 Ex API) for improved performance and resource usage<br>
+    - Only DirectX 9.x+ capable GPU are supported on Windows Vista SP2 (Windows Server 2008 SP2) or later systems<br>
+    &nbsp;&nbsp;&nbsp;
+    - Windows Vista / Server 2008 users are adviced to install this update: http://support.microsoft.com/kb/2117917
+        <br>
+    - Applied changes to Text Layers as follows:
+        <br>
+    &nbsp;&nbsp;&nbsp;
+    - Unicode support for text layers (including Cyrillic, Arabic and Asian character sets)<br>
+    &nbsp;&nbsp;&nbsp;
+    - Removed popup after loading text file<br>
+    &nbsp;&nbsp;&nbsp;
+    - Fixed text updating interval for not being applied on some situations while creating the text layer<br>
+    &nbsp;&nbsp;&nbsp;
+    - Changed minimum text update interval from 5 to 1 seconds<br>
+    &nbsp;&nbsp;&nbsp;
+    - Removed saving the text file content to settings file to prevent cluttering and for some situations corrupting the settings file<br>
+    <br>
+    <strong>0.6.0.9</strong><br>
+    - Fixed an issue with MP4 files getting corrupted while recording to harddrive<br>
+    <br>
+    <strong>0.6.0.8</strong><br>
+    - Fixed an issue with FFsource closing improperly<br>
+    - Fixed an issue with Updater Dll dependancy<br>
+    <br>
+    <strong>0.6.0.7</strong><br>
+    - Fixed an updater crashing issue due to non-removable files locked by third-party applications<br>
+    - Fixed LastErrorLog.txt error issue<br>
+    - Fixed patchnotes not showing in updater<br>
+    - Fixed “backgroundWorker” not closing properly when stream fails to connect<br>
+    <br>
+    <strong>0.6.0.6</strong><br>
+    - Added patch notes when asking for update<br>
+    - Fixed an issue with FFsource crashing with certain video capture devices<br>
+    - Fixed auto-updater for overall faster loading<br>
+    <br>
+    <strong>0.6.0.4</strong><br>
+    - Fixed another crash when copying debug log multiple times<br>
+    - Added more debug info related errors<br>
+    <br>
+    <strong>0.6.0.3</strong><br>
+    - Fixed a possible crash when copying debug log<br>
+    <br>
+    <strong>0.6.0.2</strong><br>
+    - Added support for multiple instances of a capture source. You can now add your camera to multiple scenes.<br>
+    - Added Resolution and FPS selection when adding capture sources<br>
+    - Added improved directshow handling (adding/removing/scene changing)<br>
+    - Added error logging  for FFsource<br>
+    - Added GPU capabilities logging<br>
+    - Added error handler when trying to add FFsource to FFsource<br>
+    Notes:
+        Text source will only update when the string is a different length<br>
+    <br>
+    <strong>0.6.0.1</strong><br>
+    - Added more comprehensive debug information<br>
+    - Added help text on empty FFsource scene<br>
+    - Auto save logs of last session<br>
+    - Fixed Out of Memory Exception<br>
+    - Fixed settings not saving properly<br>
+    - Fixed scenes getting stuck after repeated removal<br>
+    - Screen region uses less resources when not streaming<br>
+    - Webcam Source is now Capture Source<br>
+    Notes:<br>
+    -
+        Generic GDI+ Exception may occur<br>
+    -
+        Dialog boxes will freeze the overlay and disconnect you. For now don’t edit the scene while streaming<br>
+    <br>
+    <strong>0.6.0.0</strong><br>
+    - Added FFsource (new scene management)<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added Scenes<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added multiple capture sources<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added all image formats<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added text, text File, online file, text update, scrolling text, text color<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added Webcam Source. (any software source will function)<br>
+    &nbsp;&nbsp;&nbsp;
+        - Added Experimental Screen Capture (full and region)<br>
+    - Fixed debug log causing lag on very large log files<br>
+    Notes:<br>
+    Generic GDI+ Exception may occur<br>
+    Out of Memory Exception<br>
+    Dialog boxes will freeze the overlay and disconnect you. For now don’t edit the scene while streaming<br>
+    If you’ve been receiving this error please update to the latest DirectX version here: http://www.microsoft.com/en-us/download/details.aspx?id=350.5.5.2<br>
+    <br>
+    <strong>0.5.5.2</strong><br>
+    - Fixed 30 second stream disconnect<br>
+    <br>
+    <strong>0.5.5.0</strong><br>
+    - You can now add your username in the streamkey setup. This will show you Viewer numbers and stream status (only for twitch/own3d)<br>
+    - Added Stream statistics!<br>
+    &nbsp;&nbsp;&nbsp;
+        - Current Framerate<br>
+    &nbsp;&nbsp;&nbsp; - Current Bitrate<br>
+    &nbsp;&nbsp;&nbsp; - Dropped Frames<br>
+    &nbsp;&nbsp;&nbsp; - Session Length<br>
+    &nbsp;&nbsp;&nbsp; - Bandwidth Used<br>
+    &nbsp;&nbsp;&nbsp; - Lifetime Statistics<br>
+    - Stream setup window now error checks your input<br>
+    - Fixed custom RTMP disappearing when you closed the window<br>
+    Notes:<br>
+    - If you’re experiencing crashes, please reinstall FFsplit or go to File &gt; Reset<br>
+    - Automatic stream grabbing is disabled until a secure solution can be implemented<br>
+    - Stream setup works for Twitch.tv, Justin.tv and Own3d.tv only. Will be adding more in near future!<br>
+    <br>
+    <strong>0.5.4.0</strong><br>
+    -
+Added a stream configuration option for new users to setup their stream easily!<br>
+    - Click the Auto button to find the best server for you!
+        <br>
+    - Fixed an issue with custom RTMP ports not working properly.<br>
+    - Audio Engine has been reverted back to 0.5.3.0 until desync issue is looked at more closely. If you’re having this issue, please report it on the forums!<br>
+    Notes:<br>
+    - Automatic stream grabbing is disabled until a secure solution can be implemented<br>
+    - Stream setup works for Twitch.tv, Justin.tv and Own3d.tv only. Will be adding more in near future!<br>
+    <br>
+    <strong>0.5.3.2</strong><br>
+    - Added support for Mouse buttons (back and next)<br>
+    Notes:<br>
+    - Some anti-virus software may (falsely) flag FFsplit as malicious due to the way hotkeys are implemented. Please disable detection or add an exception if this is the case.<br>
+    <br>
+    <strong>0.5.3.1</strong><br>
+    - Updated audio filters with possible fix for users with audio desync / multiple soundcards<br>
+    - Fixed issue where FFsplit asked to update when the server could not be reached<br>
+    - Fixed a .net crash issue when update fails to complete
+Changes
+Added support for shift, ctrl, alt hotkeys<br>
+    <br>
+    <strong>0.5.3.0</strong><br>
+    - Added Hotkey Support (including Push to Talk)<br>
+    - Settings now saved between updates<br>
+    - Fixed issue with Debug Console not showing properly<br>
+    <br>
+    <strong>0.5.2.2</strong><br>
+    - File type selection for hard drive recording (FLV, MKV, MP4)<br>
+    - FFmpeg now exits properly (Thanks Roger)<br>
+    - Fixed Audio desync that appeared due to the changes in audio engine in the previous patch<br>
+    - Added additional debugging info for developers<br>
+    <br>
+    <strong>0.5.2.0</strong><br>
+    - Audio Engine has been updated!<br>
+    &nbsp;&nbsp;&nbsp; - Added stream volume control for both, Speaker and Microphone. Note that this only affects the stream volume levels and is independent of Windows sound options.<br>
+    &nbsp;&nbsp;&nbsp; - Most microphones are now fully supported. If it can record on Windows Sound Recorder, it should work with FFsplit!
+        <br>
+    - Updated batch files to properly register DirectShow filters, which was giving blank screen while streaming<br>
+    - Tab Index is working properly now<br>
+    - Fixed an issue with installer which downloads FFmpeg twice<br>
+    - Fixed an issue with the updater downloading every time FFsplit starts<br>
+    <br>
+    <strong>0.5.1.1</strong><br>
+    - Added command line arguments for FFmpeg for advanced users. Examples:
+    <br>
+    &nbsp;&nbsp;&nbsp; - <a href="http://ffmpeg.org/ffmpeg.html#Options-3">http://ffmpeg.org/ffmpeg.html#Options-3</a><br>
+    &nbsp;&nbsp;&nbsp; - <a href="http://mewiki.project357.com/wiki/X264_Settings">http://mewiki.project357.com/wiki/X264_Settings</a>
+    <br>
+    - Fixed Autoupdater getting stuck on certain files<br>
+    - Fixed TCP ports not binding properly for some users<br>
+    Notes: (See previous notes)<br>
+    <br>
+    <strong>0.5.1.0</strong><br>
+    - New WASAPI Audio Engine - Able to capture Multichannel Speaker outputs<br>
+    - Improved Debug logging<br>
+    - Added PayPal donation button<br>
+    - Multi-channel audio down mix will no longer cause the slow motion video<br>
+    - Most USB headset speakers should now work properly with FFsplit<br>
+    - Fixed FFmpeg incompatibility error message<br>
+    Notes: If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br>
+    <br>
+    <strong>0.5.0.4</strong><br>
+    - Fixed FFmpeg not updating to the correct version<br>
+    Notes: (See previous notes)<br>
+    <br>
+    <strong>0.5.0.3</strong><br>
+    - Fixed overlay giving you a black screen in low and medium quality<br>
+    - Fixed stream stopping while FFsplit keeps streaming<br>
+    Notes:<br>
+    - Directsound capture may give audio errors when using 5.1, please use Stereo, 44.1Khz, 16 bit if this is the case.<br>
+    - If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br>
+    <br>
+    <strong>0.5.0.2</strong><br>
+    - FFsplit will no longer keep encoding when you disconnect from the streaming server.<br>
+    - Fixed random black flashes on stream<br>
+    Notes:
+        <br>
+    - Overlay only works in High Quality<br>
+    - (See previous notes)<br>
+    <br>
+    <strong>0.5.0.1</strong><br>
+    - Fixed webcam sources artifacts<br>
+    - Fixed overlay quality not changing<br>
+    - Added Youtube livestream support<br>
+    Notes: (See previous notes)<br>
+    <br>
+    <strong>0.5.0.0</strong><br>
+    - Local recording is now in FLV format<br>
+    - Audio codec changed to AAC<br>
+    - Cam Source | DXTORY is now supported (+cam source only mode)<br>
+    - Multiple layers (picture in picture)<br>
+    - Window Tracking<br>
+    - Form Element Tracking (only capture certain elements of a window, very useful when games don’t have windowed borderless)<br>
+    - Fixed Backgroundworker issue<br>
+    - Updated RTMP handler
+        <br>
+    Notes:<br>
+    - Fixed Backgroundworker issue Updated RTMP handler<br>
+    - (See previous notes)<br>
+    <br>
+    <strong>0.4.3.0</strong><br>
+    - New RTMP Handler. This should fix the disconnect issues for MOST users.<br>
+    Notes:<br>
+    - Directsound capture may give audio errors when using 5.1, please use Stereo, 44.1Khz, 16 bit if this is the case.<br>
+    - While this will fix the disconnect issues for most people, some users are still reporting random disconnects. When you make a new thread of the forum please include your PC specifications, you internet speeds and the debuglog after a disconnect.<br>
+    - If you’ve been running one of our test builds please uninstall ffsplit first before updating to the latest version.<br>
+    <br>
+    <strong>0.4.2.0</strong><br>
+    - FFsplit overlay can now track the active window. Check the box on the second tab in the overlay manager to activate.<br>
+    - FFsplit overlay now captures at selected frame rate again!<br>
+    <br>
+    <strong>0.4.1.0</strong><br>
+    - Fixed stream stopping issue.<br>
+    - Fixed stream stuttering when Microphone source is not selected<br>
+    - Fixed a crash issue with Debug Log when copying to clipboard<br>
+    - Fixed support for Unicode characters in Audio Sources<br>
+    - Temporary files now deleting properly<br>
+    <br>
+    <strong>0.4.0.0</strong><br>
+    - Recording up to 60 fps<br>
+    - Simultaneous streaming and recording<br>
+    - Improved Audio Engine<br>
+    - MKV container format for local recording<br>
+    - You can now select where to save recordings and temp files<br>
+    - Improved Debug Console, can now be saved to drive or to clipboard<br>
+    - FFmpeg updated to latest stable<br>
+    - FFsplit remembers window position between sessions<br>
+    - RTMP link is now masked<br>
+    - Higher DPI Font is now supported<br>
+    - Stream Status shown at bottom<br>
+    - Installer and updater now run as admin<br>
+    - No longer need to close programs that use webcam hooks during update<br>
+    - Now shows proper icon in windows sound mixer<br>
+    - Fixed repeating frame issue, encoding will now stop when there is a problem<br>
+    <br>
+    <strong>0.3.5.10</strong><br>
+    -
+    Fixed an issue with FFsplit crashing when streaming.<br>
+    <br>
+    <strong>0.3.5.9</strong><br>
+    -
+    Hotfix for previous version
+    <br>
+    <br>
+    <strong>0.3.5.8</strong><br>
+    -
+    Fixed an issue with stream stuttering.
+    <br>
+    <br>
+    <strong>0.3.5.7</strong><br>
+    -
+    Fixed an issue with high CPU usage.
+    <br>
+    <br>
+    <strong>0.3.5.6</strong><br>
+    -
+    Removed Java TCP relay component. Multilanguage is now supported.
+    <br>
+    <br>
+    <strong>0.3.5.5</strong><br>
+    -
+    Hotfix for previous version. Overlay Manager works again!
+    <br>
+    <br>
+    <strong>0.3.5.4</strong><br>
+    -
+    FFsplit Overlay now supports screen region cropping and optional mouse display
+    <br>
+    <br>
+    <strong>0.3.5.3</strong><br>
+    -
+    Fixed this issue. Overlay Manager now closes properly when streaming.
+    <br>
+    <br>
+    <strong>0.3.5.2</strong><br>
+    -
+    UAC detection added. Auto updater mechanism changed.
+    <br>
+    <br>
+    <strong>0.3.5.1</strong><br>
+    -
+    Fixed Overlay Manager. Fixed audio sync issues.
+    <br>
+    <br>
+    <strong>0.3.5.0</strong><br>
+    -
+    Re-enabled Microphone support. Works with Default Playback Device.
+    <br>
+    <br>
+    <strong>0.3.4.9</strong><br>
+    -
+    Updated to FFsplit Overlay 1.8 and minor bugfixes
+    <br>
+    <br>
+    <strong>0.3.4.7</strong><br>
+    -
+    Fixed an issue with screen capturing at low quality
+    <br>
+    <br>
+    <strong>0.3.4.6</strong><br>
+    -
+    Fixed an issue with Audio Sources disappearing requiring FFsplit to restart
+    <br>
+    <br>
+    <strong>0.3.4.5</strong><br>
+    -
+    Fixed an issue with filter installation conflicting with Autoupdater
+    <br>
+    <br>
+    <strong>0.3.4.4</strong><br>
+    -
+    Updated FFsplit overlay source
+    <br>
+    <br>
+    <strong>0.3.4.3</strong><br>
+    -
+    Hotfix #2. Temp files now delete properly
+    <br>
+    <br>
+    <strong>0.3.4.2</strong><br>
+    -
+    Hotfix #1. Added a countdown when streaming
+    <br>
+    <br>
+    <strong>0.3.4.1</strong><br>
+    -
+    FFsplit closes any additional processes still running after closing
+    <br>
+    <br>
+    <strong>0.3.4.0</strong><br>
+    -
+    Refined image overlay management system. Added native audio capturing.
+    <br>
+    <br>
+    <strong>0.3.3.0</strong><br>
+    -
+    Added native screen capturing with static image overlay. Internal Release only
+    <br>
+    <br>
+    <strong>0.3.2.0</strong><br>
+    -
+    Added a new secure updating system
+    <br>
+    <br>
+    <strong>0.3.1.10</strong><br>
+    -
+    Fixed issue with stream stopping early
+    <br>
+    <br>
+    <strong>0.3.1.6</strong><br>
+    -
+    Fixed an issue with audio source using 48KHz sample rate
+    <br>
+    <br>
+    <strong>0.3.1.5</strong><br>
+    -
+    Fixed an issue with stream closing early
+    <br>
+    <br>
+    <strong>0.3.1.4</strong><br>
+    -
+    Added an option to automatically check for update
+    <br>
+    <br>
+    <strong>0.3.1.3</strong><br>
+    -
+    Added an autoupdater with FFsplit
+    <br>
+    <br>
+    <strong>0.3.1.2</strong><br>
+    -
+    Reverted changes from 0.3.1.1 along with minor bug fixes
+    <br>
+    <br>
+    <strong>0.3.1.1</strong><br>
+    -
+    Fixed video audio sync issues
+    <br>
+    <br>
+    <strong>0.3.1.0</strong><br>
+    - Added support for newer recording hardware
+    <br>
+    <br>
+    <strong>0.3.0.0</strong><br>
+    - Public Alpha Release
+    <br>
+</p>
+</body></html>

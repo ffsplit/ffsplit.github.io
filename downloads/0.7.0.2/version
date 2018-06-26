@@ -1,8 +1,0 @@
-- Bilinear filtering is now used on older GPUs because of compatibility issues
-- Fixed paused detection on Spotify clients (Now Playing)
-- Added command line option to skip auto updates on startup (-noupdates)
-- Changed default encoder resolution on 4:3 and 5:4 monitors
-- Added workaround for registry values preventing program to close
-- Changed registry key creation
-- Added custom service panel layout for Hashd.tv
-- Auto-updater now downloads the correct update files

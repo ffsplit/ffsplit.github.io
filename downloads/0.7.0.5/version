@@ -1,6 +1,0 @@
-- Removed External Hotkey Library, Added our own
-- FFsplit window can now be made much smaller
-- Aero options now saves
-- Added more logging options
-- Added valid resolution checking. The Encoder will no longer choke on invalid resolutions.
-- Possibly fixed Webcam Crash bug. Please report any crashes.
